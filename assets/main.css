@@ -4,10 +4,12 @@ body {
     border: 0px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 #main_menu {
     margin: 0;
+    padding-right: 10px;
     position: fixed;
     top: 0;
     left: 0;
@@ -17,6 +19,7 @@ body {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    align-items: center;
 }
 
 #main_menu a:link, #main_menu a:visited {
