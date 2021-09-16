@@ -1,20 +1,22 @@
-html, body {
+body {
     margin: 0;
     padding: 0;
     border: 0px;
+    display: flex;
+    flex-direction: column;
 }
 
 #main_menu {
     margin: 0;
-    padding: 10px;
     position: fixed;
     top: 0;
     left: 0;
     height: 5vh;
     width: 100vw;
     background-color: grey;
-    text-align: right;
-    display: block;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
 }
 
 #main_menu a:link, #main_menu a:visited {
@@ -28,5 +30,4 @@ html, body {
 }
 
 #conten {
-    display: block;
 }
