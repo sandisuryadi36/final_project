@@ -6,7 +6,7 @@ html, body {
 
 #main_menu {
     margin: 0;
-    padding-right: 5px;
+    padding: 10px;
     position: fixed;
     top: 0;
     left: 0;
@@ -25,4 +25,8 @@ html, body {
 #main_menu a:hover, #main_menu a:active {
     color: green;
     text-decoration: none;
+}
+
+#conten {
+    display: block;
 }
