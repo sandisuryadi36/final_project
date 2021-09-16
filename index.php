@@ -2,12 +2,11 @@
 <html>
     <head>
         <title>Home</title>
+        <link rel="stylesheet" href="main.css">
     </head>
     <body>
         <header>
-            <div id="main_menu">
-                <?php include 'menu.php' ?>
-            </div>
+            <?php include 'menu.php' ?>
         </header>
         <div id="content">
             <h2>Wellcome To My Website</h2>
