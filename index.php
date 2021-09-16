@@ -12,10 +12,6 @@
         <div id="content">
             <h2>Wellcome To My Website</h2>
         </div>
-        <footer>
-            <div id="copyright">
-                <p>Copyright &copy 2021 Sandi Suryadi</p>
-            </div>
-        </footer>
+        <?php include 'footer.php' ?>
     </body>
 </html>
