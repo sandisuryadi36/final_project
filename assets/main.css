@@ -14,6 +14,7 @@ html, body {
     width: 100vw;
     background-color: grey;
     text-align: right;
+    display: block;
 }
 
 #main_menu a:link, #main_menu a:visited {
