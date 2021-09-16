@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Home</title>
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="./assets/main.css">
     </head>
     <body>
         <header>
