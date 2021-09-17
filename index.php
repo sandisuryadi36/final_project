@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Home</title>
-        <link rel="stylesheet" href="./assets/main.css">
+        <link rel="stylesheet" type="text/css" href="./assets/main.css?v=1">
     </head>
     <body>
         <header>
@@ -10,6 +10,7 @@
         </header>
         <div id="content">
             <h2>Welcome To My Website</h2>
+            <h3>Sandi Suryadi</h3>
         </div>
         <?php include 'footer.php' ?>
     </body>
