@@ -10,9 +10,6 @@ body {
 #main_menu {
     margin: 0;
     padding-right: 10px;
-    position: fixed;
-    top: 0;
-    left: 0;
     height: 5vh;
     width: 100vw;
     background-color: grey;
@@ -28,9 +25,6 @@ body {
 }
 
 #main_menu a:hover, #main_menu a:active {
-    color: green;
+    color: lime;
     text-decoration: none;
-}
-
-#conten {
 }

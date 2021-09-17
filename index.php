@@ -9,7 +9,7 @@
             <?php include 'menu.php' ?>
         </header>
         <div id="content">
-            <h2>Wellcome To My Website</h2>
+            <h2>Welcome To My Website</h2>
         </div>
         <?php include 'footer.php' ?>
     </body>
