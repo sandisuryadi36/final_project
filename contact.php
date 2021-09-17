@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Contact</title>
-        <link rel="stylesheet" type="text/css" href="./assets/main.css?v=1">
+        <link rel="stylesheet" type="text/css" href="./assets/main.css">
     </head>
     <body>
         <header>
