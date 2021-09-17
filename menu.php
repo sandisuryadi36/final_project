@@ -1,11 +1,8 @@
-<?php
-echo
-'
-<div id="main_menu"><a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Portfolio</a>
-    <a href="#">Blog</a>
-    <a href="#">Team</a>
-    <a href="#">Contact</a>
-</div>'
-?>
+<div id="main_menu">
+    <a href="./">Home</a>
+    <a href="./about.php">About</a>
+    <a href="./portfolio.php">Portfolio</a>
+    <a href="./blog.php">Blog</a>
+    <a href="./team.php">Team</a>
+    <a href="./contact.php">Contact</a>
+</div>

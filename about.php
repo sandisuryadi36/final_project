@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>About</title>
         <link rel="stylesheet" type="text/css" href="./assets/main.css">
     </head>
     <body>
@@ -9,8 +9,7 @@
             <?php include 'menu.php' ?>
         </header>
         <div id="content">
-            <h2>Welcome To My Website</h2>
-            <h3>Sandi Suryadi</h3>
+            <h2>About Me</h2>
         </div>
         <?php include 'footer.php' ?>
     </body>
