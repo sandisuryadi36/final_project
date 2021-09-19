@@ -3,43 +3,59 @@ body {
   padding: 0;
 }
 
-header #menu {
+.flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: grey;
-  padding: 10px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 
-header #menu a, header #menu a:visited, header #menu a:hover {
+.flex-jc-sb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex-jc-c {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flex-ai-c {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header nav {
+  background-color: grey;
+  padding: 10px;
+}
+
+.header nav a, .header nav a:visited, .header nav a:hover {
   color: white;
   text-decoration: none;
   -webkit-transition: color 300ms ease-in-out;
   transition: color 300ms ease-in-out;
 }
 
-header #menu a:not(:last-child), header #menu a:visited:not(:last-child), header #menu a:hover:not(:last-child) {
+.header nav a:not(:last-child), .header nav a:visited:not(:last-child), .header nav a:hover:not(:last-child) {
   margin-right: 10px;
 }
 
-header #menu a:hover {
+.header nav a:hover {
   color: lightskyblue;
 }
 
-#content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.header_toggle > span {
+  display: block;
+  background-color: white;
+  width: 25px;
+  height: 2px;
+}
+
+.header_toggle > span:not(:last-child) {
+  margin-bottom: 5px;
 }
 
 footer {
@@ -53,5 +69,12 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=main.css.map */

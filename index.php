@@ -8,17 +8,24 @@
     <title>Home</title>
 </head>
 <body>
-        <header>
-            <nav id="menu">
-                <a href="./">Home</a>
-                <a href="#">About</a>
-                <a href="#">Portfolio</a>
-                <a href="#">Blog</a>
-                <a href="#">Team</a>
-                <a href="#">Contact</a>
+        <header class="header">
+            <nav class="flex flex-jc-sb">
+                <a href="#" class="header_toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+                <div class="menu_link">
+                    <a href="./">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Team</a>
+                    <a href="#">Contact</a>
+                </div>
             </nav>
         </header>
-        <div id="content">
+        <div class="content flex flex-ai-c">
             <h2>Welcome To My Website</h2>
             <h3>Sandi Suryadi</h3>
         </div>

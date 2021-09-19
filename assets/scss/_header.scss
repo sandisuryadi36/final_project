@@ -1,0 +1,32 @@
+.header {
+    nav {
+        background-color: grey;
+        padding: 10px;
+        a, a:visited, a:hover {
+            color: white;
+            text-decoration: none;
+            transition: color 300ms ease-in-out;
+
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+        }
+
+        a:hover {
+            color: lightskyblue;
+        }
+    }
+    
+    &_toggle { //mobile toggle menu
+        > span {
+            display: block;
+            background-color: white;
+            width: 25px;
+            height: 2px;
+
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
