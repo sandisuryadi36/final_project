@@ -1,0 +1,19 @@
+//breackpoint display width
+$breakpoint-up: ("medium":"640px", "large":"1024px", "xlarge":"1400px");
+$breakpoint-down: ("small":"639px", "medium":"1023px", "large":"1399px");
+
+//function to filter display
+
+//filter to higher size
+@mixin breakpoint_up ($size){
+    @media (min-width: map-get($breakpoint-up,$size)) {
+        @content;
+    }
+}
+
+//filter to lower size
+@mixin breakpoint_down ($size){
+    @media (max-width: map-get($breakpoint-down, $size)) {
+        @content;
+    }
+}

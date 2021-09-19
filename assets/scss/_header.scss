@@ -1,10 +1,11 @@
 .header {
     nav {
-        background-color: grey;
-        padding: 10px;
+        background-color: white;
+        padding: 20px 10px;
         a, a:visited, a:hover {
-            color: white;
+            color: $lightgrey;
             text-decoration: none;
+            font-weight: 400;
             transition: color 300ms ease-in-out;
 
             &:not(:last-child) {
@@ -13,14 +14,14 @@
         }
 
         a:hover {
-            color: lightskyblue;
+            color: black;
         }
     }
     
-    &_toggle { //mobile toggle menu
+    &_toggle {      //mobile toggle menu
         > span {
             display: block;
-            background-color: white;
+            background-color: $lightgrey;
             width: 25px;
             height: 2px;
 

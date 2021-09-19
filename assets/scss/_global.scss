@@ -1,6 +1,9 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: whitesmoke;
+    font-family: sans-serif;
+    font-weight: 300;
 }
 
 //flexbox
@@ -15,7 +18,25 @@ body {
         justify-content: center;
     }
 
+    &-jc-fe {
+        justify-content: flex-end;    
+    }
+
     &-ai-c {
         align-items: center;
+    }
+}
+
+//responsive visibilty
+.mobile-hide {          //hide in mobile display
+    @include breakpoint_down(medium){
+        display: none;
+    }
+    
+}
+
+.desktop-hide {         //hide in desktop display
+    @include breakpoint_up(large){
+        display: none;
     }
 }
