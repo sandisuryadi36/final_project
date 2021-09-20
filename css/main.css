@@ -73,11 +73,29 @@ body {
   display: block;
   background-color: #808891;
   width: 25px;
-  height: 2px;
+  height: 3px;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  -webkit-transform-origin: 4% 50%;
+          transform-origin: 4% 50%;
 }
 
 .header_toggle > span:not(:last-child) {
   margin-bottom: 5px;
+}
+
+.header.open .header_toggle > span:first-child {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.header.open .header_toggle > span:nth-child(2) {
+  opacity: 0;
+}
+
+.header.open .header_toggle > span:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 footer {

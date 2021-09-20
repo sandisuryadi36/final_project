@@ -23,10 +23,29 @@
             display: block;
             background-color: $lightgrey;
             width: 25px;
-            height: 2px;
+            height: 3px;
+            transition: all 300ms ease-in-out;
+            transform-origin: 4% 50%;
 
             &:not(:last-child) {
                 margin-bottom: 5px;
+            }
+        }
+    }
+
+    &.open {
+        .header_toggle {
+                
+            > span:first-child {
+                transform: rotate(45deg);
+            }
+
+            > span:nth-child(2){
+                opacity: 0;
+            }
+
+            > span:last-child{
+                transform: rotate(-45deg);
             }
         }
     }
