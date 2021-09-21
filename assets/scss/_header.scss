@@ -1,9 +1,11 @@
+@use 'variables' as var;
+
 .header {
     nav {
         background-color: white;
         padding: 20px 10px;
         a, a:visited, a:hover {
-            color: $lightgrey;
+            color: lightgray;
             text-decoration: none;
             font-weight: 400;
             transition: color 300ms ease-in-out;
@@ -21,7 +23,7 @@
     &_toggle {      //mobile toggle menu
         > span {
             display: block;
-            background-color: $lightgrey;
+            background-color: lightgray;
             width: 25px;
             height: 3px;
             transition: all 300ms ease-in-out;

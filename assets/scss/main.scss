@@ -1,7 +1,4 @@
-@import "variables";
-@import "mixin";
-
-@import "global";
-@import "header";
-@import "footer";
-@import "content";
+@use 'global';
+@use 'header';
+@use 'footer';
+@use 'content';

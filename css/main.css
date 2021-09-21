@@ -7,33 +7,19 @@ body {
 }
 
 .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .flex-jc-sb {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
-
 .flex-jc-c {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
-
 .flex-jc-fe {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
-
 .flex-ai-c {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 @media (max-width: 1023px) {
@@ -52,64 +38,46 @@ body {
   background-color: white;
   padding: 20px 10px;
 }
-
 .header nav a, .header nav a:visited, .header nav a:hover {
-  color: #808891;
+  color: lightgray;
   text-decoration: none;
   font-weight: 400;
-  -webkit-transition: color 300ms ease-in-out;
   transition: color 300ms ease-in-out;
 }
-
 .header nav a:not(:last-child), .header nav a:visited:not(:last-child), .header nav a:hover:not(:last-child) {
   margin-right: 10px;
 }
-
 .header nav a:hover {
   color: black;
 }
-
 .header_toggle > span {
   display: block;
-  background-color: #808891;
+  background-color: lightgray;
   width: 25px;
   height: 3px;
-  -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  -webkit-transform-origin: 4% 50%;
-          transform-origin: 4% 50%;
+  transform-origin: 4% 50%;
 }
-
 .header_toggle > span:not(:last-child) {
   margin-bottom: 5px;
 }
-
 .header.open .header_toggle > span:first-child {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
-
 .header.open .header_toggle > span:nth-child(2) {
   opacity: 0;
 }
-
 .header.open .header_toggle > span:last-child {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 footer {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   background-color: white;
 }
 
 .content {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
+
 /*# sourceMappingURL=main.css.map */

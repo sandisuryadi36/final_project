@@ -1,3 +1,6 @@
+@use 'mixin';
+@use 'variables';
+
 body {
     margin: 0;
     padding: 0;
@@ -29,14 +32,14 @@ body {
 
 //responsive visibilty
 .mobile-hide {          //hide in mobile display
-    @include breakpoint_down(medium){
+    @include mixin.breakpoint_down(medium){
         display: none;
     }
     
 }
 
 .desktop-hide {         //hide in desktop display
-    @include breakpoint_up(large){
+    @include mixin.breakpoint_up(large){
         display: none;
     }
 }
