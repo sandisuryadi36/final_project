@@ -90,6 +90,14 @@ body.noScroll {
     opacity: 0;
   }
 }
+.fade-in {
+  animation: fade-in 300ms ease-in-out 1 forwards;
+}
+
+.fade-out {
+  animation: fade-out 300ms ease-in-out 1 forwards;
+}
+
 .header .nav {
   background-color: #84a98c;
   min-height: 20px;
@@ -127,22 +135,37 @@ body.noScroll {
 .header.open .header_toggle > span:last-child {
   transform: rotate(-45deg);
 }
-.header.open .overlay.fade-in {
-  animation: fade-in 300ms ease-in-out 1 forwards;
-}
 .header .overlay {
   display: block;
   visibility: hidden;
   position: absolute;
+  height: 100vh;
   top: 40px;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(132, 169, 140, 0.75);
-  backdrop-filter: blur(3px);
+  background-image: linear-gradient(rgba(132, 169, 140, 0.75), transparent);
 }
-.header .overlay.fade-out {
-  animation: fade-out 300ms ease-in-out 1 forwards;
+.header .toggle-menu {
+  visibility: hidden;
+  width: calc(100% - 40px);
+  padding: 15px 0px;
+  border-radius: 5px;
+  background-color: rgba(132, 169, 140, 0.5);
+  backdrop-filter: blur(3px);
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.header .toggle-menu a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+  font-weight: 600;
 }
 
 footer {
@@ -153,7 +176,7 @@ footer {
 
 .content {
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - 90px);
 }
 
 /*# sourceMappingURL=main.css.map */

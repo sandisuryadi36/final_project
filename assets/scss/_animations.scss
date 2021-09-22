@@ -20,3 +20,11 @@
         opacity: 0;
     }
 }
+
+.fade-in {
+    animation: fade-in 300ms ease-in-out 1 forwards;
+}
+
+.fade-out {
+    animation: fade-out 300ms ease-in-out 1 forwards;
+}

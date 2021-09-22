@@ -1,5 +1,5 @@
 @use 'variables' as var;
-@use 'animations' as ani;
+@use 'animations';
 
 .header {
     .nav {
@@ -52,27 +52,40 @@
                 transform: rotate(-45deg);
             }
         }
-
-        .overlay {
-            &.fade-in {
-                animation: fade-in 300ms ease-in-out 1 forwards;
-            }
-        }
     }
 
     .overlay {
         display: block;
         visibility: hidden;
         position: absolute;
+        height: 100vh;
         top: 40px;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba($color: var.$primary-color, $alpha: 0.75);
+        background-image: linear-gradient(rgba($color: var.$primary-color, $alpha: 0.75), transparent);
+    }
+    
+    .toggle-menu {
+        visibility: hidden;
+        width: calc(100% - 40px);
+        padding: 15px 0px;
+        border-radius: 5px;
+        background-color: rgba($color: var.$primary-color, $alpha: 0.5);
         backdrop-filter: blur(3px);
-        
-        &.fade-out {
-            animation: fade-out 300ms ease-in-out 1 forwards;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+
+        a {
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+            color: var.$onPrime-color;
+            font-weight: 600;
         }
     }
 }
