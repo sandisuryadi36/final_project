@@ -5,7 +5,7 @@
     .nav {
         background-color: var.$primary-color;
         min-height: 20px;
-        padding: 10px 10px;
+        padding: 10px var.$side-padding;
         a, a:visited, a:hover {
             color: var.$onPrime-color;
             text-decoration: none;
@@ -15,6 +15,9 @@
             &:not(:last-child) {
                 margin-right: 10px;
             }
+        }
+        #btnHamburger {
+            margin-right: 0;
         }
 
         a:hover {
@@ -58,7 +61,7 @@
         display: block;
         visibility: hidden;
         position: absolute;
-        height: 100vh;
+        height: calc(100vh - 40px);
         top: 40px;
         left: 0;
         right: 0;
@@ -68,7 +71,7 @@
     
     .toggle-menu {
         visibility: hidden;
-        width: calc(100% - 40px);
+        width: calc(100% - calc(var.$side-padding * 2));
         padding: 15px 0px;
         border-radius: 5px;
         background-color: rgba($color: var.$primary-color, $alpha: 0.5);

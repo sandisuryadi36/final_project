@@ -1,35 +1,3 @@
-/* $light-theme : (
-    "primary-color"     : rgb(132, 169, 140),
-    "secondary-color"   : rgb(132, 169, 140),
-    "accent-color"      : rgb(82, 121, 111),
-    "background-color"  : whitesmoke,
-    "surface-color"     : rgb(202, 210, 197),
-    "error-color"       : null,
-    "onPrime-color"     : white,
-    "onSec-color"       : white,
-    "onBack-color"      : black,
-    "onSur-color"       : gray,
-    "onErr-color"       : null,
-);
-
-$dark-theme : (
-    "primary-color"     : null,
-    "secondary-color"   : null,
-    "accent-color"      : null,
-    "background-color"  : null,
-    "surface-color"     : null,
-    "error-color"       : null,
-    "onPrime-color"     : null,
-    "onSec-color"       : null,
-    "onBack-color"      : null,
-    "onSur-color"       : null,
-    "onErr-color"       : null,
-);
-
-//function to pick the color
-@function color-pick ($theme, $color){
-    @return map-get($map: $theme, $key: $color);
-} */
 body {
   margin: 0;
   padding: 0;
@@ -101,7 +69,7 @@ body.noScroll {
 .header .nav {
   background-color: #84a98c;
   min-height: 20px;
-  padding: 10px 10px;
+  padding: 10px 30px;
 }
 .header .nav a, .header .nav a:visited, .header .nav a:hover {
   color: white;
@@ -111,6 +79,9 @@ body.noScroll {
 }
 .header .nav a:not(:last-child), .header .nav a:visited:not(:last-child), .header .nav a:hover:not(:last-child) {
   margin-right: 10px;
+}
+.header .nav #btnHamburger {
+  margin-right: 0;
 }
 .header .nav a:hover {
   color: #52796f;
@@ -139,7 +110,7 @@ body.noScroll {
   display: block;
   visibility: hidden;
   position: absolute;
-  height: 100vh;
+  height: calc(100vh - 40px);
   top: 40px;
   left: 0;
   right: 0;
@@ -148,7 +119,7 @@ body.noScroll {
 }
 .header .toggle-menu {
   visibility: hidden;
-  width: calc(100% - 40px);
+  width: calc(100% - 60px);
   padding: 15px 0px;
   border-radius: 5px;
   background-color: rgba(132, 169, 140, 0.5);
@@ -168,15 +139,17 @@ body.noScroll {
   font-weight: 600;
 }
 
-footer {
-  flex-direction: column;
-  background-color: #84a98c;
-  color: white;
-}
-
 .content {
   flex-direction: column;
   min-height: calc(100vh - 90px);
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  background-color: #84a98c;
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */

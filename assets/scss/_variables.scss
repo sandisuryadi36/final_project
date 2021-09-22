@@ -1,5 +1,4 @@
 //colors
-
 $primary-color     : rgb(132, 169, 140);
 $secondary-color   : rgb(82, 121, 111);
 $accent-color      : rgb(82, 121, 111);
@@ -12,38 +11,5 @@ $onBack-color      : black;
 $onSur-color       : gray;
 $onErr-color       : null;
 
-
-
-
-/* $light-theme : (
-    "primary-color"     : rgb(132, 169, 140),
-    "secondary-color"   : rgb(132, 169, 140),
-    "accent-color"      : rgb(82, 121, 111),
-    "background-color"  : whitesmoke,
-    "surface-color"     : rgb(202, 210, 197),
-    "error-color"       : null,
-    "onPrime-color"     : white,
-    "onSec-color"       : white,
-    "onBack-color"      : black,
-    "onSur-color"       : gray,
-    "onErr-color"       : null,
-);
-
-$dark-theme : (
-    "primary-color"     : null,
-    "secondary-color"   : null,
-    "accent-color"      : null,
-    "background-color"  : null,
-    "surface-color"     : null,
-    "error-color"       : null,
-    "onPrime-color"     : null,
-    "onSec-color"       : null,
-    "onBack-color"      : null,
-    "onSur-color"       : null,
-    "onErr-color"       : null,
-);
-
-//function to pick the color
-@function color-pick ($theme, $color){
-    @return map-get($map: $theme, $key: $color);
-} */
+//formatting
+$side-padding       : 30px;
