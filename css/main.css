@@ -1,9 +1,45 @@
+/* $light-theme : (
+    "primary-color"     : rgb(132, 169, 140),
+    "secondary-color"   : rgb(132, 169, 140),
+    "accent-color"      : rgb(82, 121, 111),
+    "background-color"  : whitesmoke,
+    "surface-color"     : rgb(202, 210, 197),
+    "error-color"       : null,
+    "onPrime-color"     : white,
+    "onSec-color"       : white,
+    "onBack-color"      : black,
+    "onSur-color"       : gray,
+    "onErr-color"       : null,
+);
+
+$dark-theme : (
+    "primary-color"     : null,
+    "secondary-color"   : null,
+    "accent-color"      : null,
+    "background-color"  : null,
+    "surface-color"     : null,
+    "error-color"       : null,
+    "onPrime-color"     : null,
+    "onSec-color"       : null,
+    "onBack-color"      : null,
+    "onSur-color"       : null,
+    "onErr-color"       : null,
+);
+
+//function to pick the color
+@function color-pick ($theme, $color){
+    @return map-get($map: $theme, $key: $color);
+} */
 body {
   margin: 0;
   padding: 0;
   background-color: whitesmoke;
+  color: black;
   font-family: sans-serif;
   font-weight: 300;
+}
+body.noScroll {
+  overflow: hidden;
 }
 
 .flex {
@@ -34,29 +70,50 @@ body {
   }
 }
 
-.header nav {
-  background-color: white;
-  padding: 20px 10px;
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
 }
-.header nav a, .header nav a:visited, .header nav a:hover {
-  color: lightgray;
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+.header .nav {
+  background-color: #84a98c;
+  min-height: 20px;
+  padding: 10px 10px;
+}
+.header .nav a, .header .nav a:visited, .header .nav a:hover {
+  color: white;
   text-decoration: none;
   font-weight: 400;
   transition: color 300ms ease-in-out;
 }
-.header nav a:not(:last-child), .header nav a:visited:not(:last-child), .header nav a:hover:not(:last-child) {
+.header .nav a:not(:last-child), .header .nav a:visited:not(:last-child), .header .nav a:hover:not(:last-child) {
   margin-right: 10px;
 }
-.header nav a:hover {
-  color: black;
+.header .nav a:hover {
+  color: #52796f;
 }
 .header_toggle > span {
   display: block;
-  background-color: lightgray;
+  background-color: white;
   width: 25px;
   height: 3px;
   transition: all 300ms ease-in-out;
-  transform-origin: 4% 50%;
+  transform-origin: 5% 50%;
 }
 .header_toggle > span:not(:last-child) {
   margin-bottom: 5px;
@@ -70,14 +127,33 @@ body {
 .header.open .header_toggle > span:last-child {
   transform: rotate(-45deg);
 }
+.header.open .overlay.fade-in {
+  animation: fade-in 300ms ease-in-out 1 forwards;
+}
+.header .overlay {
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(132, 169, 140, 0.75);
+  backdrop-filter: blur(3px);
+}
+.header .overlay.fade-out {
+  animation: fade-out 300ms ease-in-out 1 forwards;
+}
 
 footer {
   flex-direction: column;
-  background-color: white;
+  background-color: #84a98c;
+  color: white;
 }
 
 .content {
   flex-direction: column;
+  min-height: 100vh;
 }
 
 /*# sourceMappingURL=main.css.map */

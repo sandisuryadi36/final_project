@@ -1,12 +1,21 @@
 const btnHamburger = document.querySelector('#btnHamburger');
-const Header = document.querySelector('.header');
+const header = document.querySelector('.header');
+const fadding = document.querySelector('.overlay');
+const body = document.querySelector('body');
 
 btnHamburger.addEventListener('click', function(){
     console.log('button hamburger clicked')
 
-    if(Header.classList.contains('open')){
-        Header.classList.remove('open');
+    if(header.classList.contains('open')){
+        fadding.classList.remove('fade-in');
+        fadding.classList.add('fade-out');
+        header.classList.remove('open');
+        body.classList.remove('noScroll');
+        
     } else {
-        Header.classList.add('open');
+        header.classList.add('open');
+        fadding.classList.remove('fade-out');
+        fadding.classList.add('fade-in');
+        body.classList.add('noScroll');
     }
 })

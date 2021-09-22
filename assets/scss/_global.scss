@@ -1,12 +1,17 @@
 @use 'mixin';
-@use 'variables';
+@use 'variables' as var;
 
 body {
     margin: 0;
     padding: 0;
-    background-color: whitesmoke;
+    background-color: var.$background-color;
+    color: var.$onBack-color;
     font-family: sans-serif;
     font-weight: 300;
+
+    &.noScroll {
+        overflow: hidden;
+    }
 }
 
 //flexbox
