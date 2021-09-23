@@ -67,9 +67,10 @@ body.noScroll {
 }
 
 .header .nav {
+  flex-direction: row;
   background-color: #84a98c;
   min-height: 20px;
-  padding: 10px 30px;
+  padding: 5px 30px;
 }
 .header .nav a, .header .nav a:visited, .header .nav a:hover {
   color: white;
@@ -77,14 +78,21 @@ body.noScroll {
   font-weight: 400;
   transition: color 300ms ease-in-out;
 }
-.header .nav a:not(:last-child), .header .nav a:visited:not(:last-child), .header .nav a:hover:not(:last-child) {
-  margin-right: 10px;
-}
-.header .nav #btnHamburger {
-  margin-right: 0;
-}
 .header .nav a:hover {
   color: #52796f;
+}
+.header .nav .menu_link {
+  gap: 20px;
+}
+.header .nav .header-logo {
+  height: 60px;
+}
+.header .nav .header-logo > img {
+  max-height: 100%;
+  width: auto;
+}
+.header_toggle {
+  margin: auto 0;
 }
 .header_toggle > span {
   display: block;
@@ -110,8 +118,8 @@ body.noScroll {
   display: block;
   visibility: hidden;
   position: absolute;
-  height: calc(100vh - 40px);
-  top: 40px;
+  height: calc(100vh - 60px - 60px);
+  top: 70px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -126,7 +134,7 @@ body.noScroll {
   backdrop-filter: blur(3px);
   flex-direction: column;
   position: absolute;
-  top: 60px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -141,7 +149,7 @@ body.noScroll {
 
 .content {
   flex-direction: column;
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 60px - 60px);
 }
 
 footer {
