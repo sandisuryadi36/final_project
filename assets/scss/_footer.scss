@@ -4,6 +4,6 @@ footer {
     margin: 0;
     padding: 0;
     flex-direction: column;
-    background-color: var.$primary-color;
-    color: var.$onPrime-color;
+    background-color: var.surface_color(7%);
+    color: var.$onSur-color;
 }

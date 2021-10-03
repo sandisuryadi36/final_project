@@ -1,8 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: whitesmoke;
-  color: black;
+  background-color: #121212;
+  color: #ffffff;
   font-family: sans-serif;
   font-weight: 300;
 }
@@ -68,18 +68,18 @@ body.noScroll {
 
 .header .nav {
   flex-direction: row;
-  background-color: #84a98c;
+  background-color: #242424;
   min-height: 20px;
   padding: 5px 30px;
 }
 .header .nav a, .header .nav a:visited, .header .nav a:hover {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 400;
   transition: color 300ms ease-in-out;
 }
 .header .nav a:hover {
-  color: #52796f;
+  color: #67b980;
 }
 .header .nav .menu_link {
   gap: 20px;
@@ -96,7 +96,7 @@ body.noScroll {
 }
 .header_toggle > span {
   display: block;
-  background-color: white;
+  background-color: #ffffff;
   width: 25px;
   height: 3px;
   transition: all 300ms ease-in-out;
@@ -123,14 +123,14 @@ body.noScroll {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(rgba(132, 169, 140, 0.75), transparent);
+  background-image: linear-gradient(rgba(41, 41, 41, 0.75), transparent);
 }
 .header .toggle-menu {
   visibility: hidden;
   width: calc(100% - 60px);
   padding: 15px 0px;
   border-radius: 5px;
-  background-color: rgba(132, 169, 140, 0.5);
+  background-color: rgba(49, 49, 49, 0.5);
   backdrop-filter: blur(3px);
   flex-direction: column;
   position: absolute;
@@ -143,7 +143,7 @@ body.noScroll {
   display: block;
   text-decoration: none;
   padding: 10px;
-  color: white;
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -156,8 +156,8 @@ footer {
   margin: 0;
   padding: 0;
   flex-direction: column;
-  background-color: #84a98c;
-  color: white;
+  background-color: #242424;
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=main.css.map */

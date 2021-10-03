@@ -1,15 +1,20 @@
 //colors
-$primary-color     : rgb(132, 169, 140);
-$secondary-color   : rgb(82, 121, 111);
+$primary-color     : rgb(103, 185, 128);
+$secondary-color   : rgb(255, 253, 115);
 $accent-color      : rgb(82, 121, 111);
-$background-color  : whitesmoke;
-$surface-color     : rgb(202, 210, 197);
-$error-color       : null;
-$onPrime-color     : white;
-$onSec-color       : white;
-$onBack-color      : black;
-$onSur-color       : gray;
-$onErr-color       : null;
+$background-color  : #121212;
+$surface-color     : #121212;
+$error-color       : #CF6679;
+$onPrime-color     : #ffffff;
+$onSec-color       : #121212;
+$onBack-color      : #ffffff;
+$onSur-color       : #ffffff;
+$onErr-color       : #121212;
+
+//surface color elevation
+@function surface_color ($amount) {
+    @return lighten($background-color, $amount);
+}
 
 //formatting
 $side-padding       : 30px;

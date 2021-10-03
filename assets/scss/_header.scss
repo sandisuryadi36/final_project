@@ -4,18 +4,18 @@
 .header {
     .nav {
         flex-direction: row;
-        background-color: var.$primary-color;
+        background-color: var.surface_color(7%);
         min-height: 20px;
         padding: 5px var.$side-padding;
         a, a:visited, a:hover {
-            color: var.$onPrime-color;
+            color: var.$onSur-color;
             text-decoration: none;
             font-weight: 400;
             transition: color 300ms ease-in-out;
         }
         
         a:hover {
-            color: var.$accent-color;
+            color: var.$primary-color;
         }
 
         .menu_link {
@@ -35,7 +35,7 @@
         margin: auto 0;
         > span {
             display: block;
-            background-color: var.$onPrime-color;
+            background-color: var.$onSur-color;
             width: 25px;
             height: 3px;
             transition: all 300ms ease-in-out;
@@ -73,7 +73,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: linear-gradient(rgba($color: var.$primary-color, $alpha: 0.75), transparent);
+        background-image: linear-gradient(rgba($color: var.surface_color(9%), $alpha: 0.75), transparent);
     }
     
     .toggle-menu {
@@ -81,7 +81,7 @@
         width: calc(100% - calc(var.$side-padding * 2));
         padding: 15px 0px;
         border-radius: 5px;
-        background-color: rgba($color: var.$primary-color, $alpha: 0.5);
+        background-color: rgba($color: var.surface_color(12%), $alpha: 0.5);
         backdrop-filter: blur(3px);
         flex-direction: column;
         position: absolute;
@@ -94,7 +94,7 @@
             display: block;
             text-decoration: none;
             padding: 10px;
-            color: var.$onPrime-color;
+            color: var.$onSur-color;
             font-weight: 600;
         }
     }
