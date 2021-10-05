@@ -3,23 +3,48 @@
 
 .header {
     .nav {
+        position: relative;
+        top: 0;
+        left: 0;
         flex-direction: row;
-        background-color: var.surface_color(7%);
+        background-color: transparent; //var.surface_color(7%);
         min-height: 20px;
         padding: 5px var.$side-padding;
-        a, a:visited, a:hover {
-            color: var.$onSur-color;
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 300ms ease-in-out;
-        }
-        
-        a:hover {
-            color: var.$primary-color;
-        }
 
         .menu_link {
+            position: relative;
             gap: 20px;
+            a, a:visited, a:hover {
+                position: relative;
+                color: var.$onSur-color;
+                text-decoration: none;
+                font-weight: 400;
+                transition: color 300ms ease-in-out;
+
+                &::before {
+                    content: "";
+                    // display: block;
+                    position: absolute;
+                    height: 3px;
+                    border-radius: 50px;
+                    left: 0;
+                    right: 0;
+                    bottom: -20px;
+                    background-color: var.$primary-color;
+                    opacity: 0;
+                    transition: opacity 300ms ease-in-out;
+                }
+            }
+            
+            a:hover {
+                color: var.$primary-color;
+
+                &::before {
+                    background-color: var.$primary-color;
+                    opacity: 1;
+                }
+            }
+
         }
 
         .header-logo {

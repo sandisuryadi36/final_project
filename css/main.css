@@ -5,6 +5,7 @@ body {
   color: #ffffff;
   font-family: sans-serif;
   font-weight: 300;
+  position: relative;
 }
 body.noScroll {
   overflow: hidden;
@@ -67,22 +68,43 @@ body.noScroll {
 }
 
 .header .nav {
+  position: relative;
+  top: 0;
+  left: 0;
   flex-direction: row;
-  background-color: #242424;
+  background-color: transparent;
   min-height: 20px;
   padding: 5px 30px;
 }
-.header .nav a, .header .nav a:visited, .header .nav a:hover {
+.header .nav .menu_link {
+  position: relative;
+  gap: 20px;
+}
+.header .nav .menu_link a, .header .nav .menu_link a:visited, .header .nav .menu_link a:hover {
+  position: relative;
   color: #ffffff;
   text-decoration: none;
   font-weight: 400;
   transition: color 300ms ease-in-out;
 }
-.header .nav a:hover {
+.header .nav .menu_link a::before, .header .nav .menu_link a:visited::before, .header .nav .menu_link a:hover::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  border-radius: 50px;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  background-color: #67b980;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+.header .nav .menu_link a:hover {
   color: #67b980;
 }
-.header .nav .menu_link {
-  gap: 20px;
+.header .nav .menu_link a:hover::before {
+  background-color: #67b980;
+  opacity: 1;
 }
 .header .nav .header-logo {
   height: 60px;
