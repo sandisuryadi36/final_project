@@ -6,7 +6,6 @@
         position: relative;
         top: 0;
         left: 0;
-        flex-direction: row;
         background-color: transparent; //var.surface_color(7%);
         min-height: 20px;
         padding: 5px var.$side-padding;
@@ -108,7 +107,6 @@
         border-radius: 5px;
         background-color: rgba($color: var.surface_color(12%), $alpha: 0.5);
         backdrop-filter: blur(3px);
-        flex-direction: column;
         position: absolute;
         top: calc(var.$header-logo-height + 40px);
         left: 50%;

@@ -9,7 +9,7 @@
 </head>
 <body>
         <header class="header">
-            <nav class="nav flex flex-jc-sb flex-ai-c">
+            <nav class="nav flex flex-row flex-jc-sb flex-ai-c">
                 <!-- display overlay menu -->
                 <div class="overlay"></div>
 
@@ -37,7 +37,7 @@
             </nav>
 
             <!-- menu in overlay -->
-            <div class="toggle-menu flex flex-ai-c">
+            <div class="toggle-menu flex flex-column flex-ai-c">
                 <a href="./">Home</a>
                 <a href="#">About</a>
                 <a href="#">Portfolio</a>
@@ -46,15 +46,29 @@
                 <a href="#">Contact</a>
             </div>
         </header>
+
         <div class="content flex flex-ai-c">
-            <h2>Welcome To My Website</h2>
-            <h3>Sandi Suryadi</h3>
+
+            <!-- greating text -->
+            <section class="greating flex flex-row">
+                <div>
+                    <h3>hello</h3>
+                    <h3>I'm </h3>
+                </div>
+                <span></span>
+                <div>
+                    <h2>Sandi Suryadi</h2>
+                    <h3>a Photographer</h3>
+                </div>
+            </section>
         </div>
+
         <footer class="flex flex-ai-c">
             <div class="copyright">
                 <p>Copyright &copy 2021 Sandi Suryadi</p>
             </div>
         </footer>
+
         <script src="./assets/js/script.js"></script>
 </body>
 </html>

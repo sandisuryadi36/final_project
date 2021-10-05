@@ -1,18 +1,24 @@
 @use 'mixin';
 @use 'variables' as var;
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
 body {
     margin: 0;
     padding: 0;
     background-color: var.$background-color;
     color: var.$onBack-color;
-    font-family: sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 300;
     position: relative;
 
     &.noScroll {
         overflow: hidden;
     }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
 }
 
 //flexbox
@@ -33,6 +39,14 @@ body {
 
     &-ai-c {
         align-items: center;
+    }
+
+    &-row {
+        flex-direction: row;
+    }
+
+    &-column {
+        flex-direction: column;
     }
 }
 
