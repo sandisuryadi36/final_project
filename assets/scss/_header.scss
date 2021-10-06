@@ -7,6 +7,8 @@
         top: 0;
         left: 0;
         background-color: transparent; //var.surface_color(7%);
+        border-bottom: 1px solid var.surface_color(7%);
+        backdrop-filter: blur(5px);
         min-height: 20px;
         padding: 5px var.$side-padding;
         z-index: 2;
@@ -29,7 +31,7 @@
                     border-radius: 50px;
                     left: 0;
                     right: 0;
-                    bottom: -20px;
+                    bottom: -25px;
                     background-color: var.$primary-color;
                     opacity: 0;
                     transition: opacity 300ms ease-in-out;
@@ -55,9 +57,21 @@
             }
         }
     }
+
+    .sticky-nav {
+        border: 1px solid var.surface_color(7%);
+        border-radius: 40px;
+        padding: 5px 20px;
+        width: calc(100vw - 100px);
+        position: fixed;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
     
     &_toggle {      //mobile toggle menu
         margin: auto 0;
+        cursor: pointer;
         > span {
             display: block;
             background-color: var.$onSur-color;
@@ -93,12 +107,12 @@
         display: block;
         visibility: hidden;
         position: absolute;
-        height: calc(100vh - 64px - var.$header-logo-height);
-        top: calc(10px + var.$header-logo-height);
+        // height: calc(100vh - 65px - var.$header-logo-height);
         left: 0;
         right: 0;
-        bottom: 0;
         background-image: linear-gradient(rgba($color: var.surface_color(9%), $alpha: 0.75), transparent);
+        z-index: 3;
+        backdrop-filter: blur(5px);
     }
     
     .toggle-menu {
@@ -107,12 +121,10 @@
         padding: 15px 0px;
         border-radius: 5px;
         background-color: rgba($color: var.surface_color(12%), $alpha: 0.5);
-        backdrop-filter: blur(3px);
         position: absolute;
-        top: calc(var.$header-logo-height + 40px);
+        top: 30px;
         left: 50%;
         transform: translateX(-50%);
-        z-index: 3;
 
         a {
             display: block;

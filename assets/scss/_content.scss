@@ -2,7 +2,7 @@
 @use 'variables' as var;
 
 .content {
-    min-height: calc(100vh - 64px - var.$header-logo-height);
+    min-height: 120vh; //calc(100vh - 65px - var.$header-logo-height);
     padding: 0px 10vw;
     position: relative;
 }

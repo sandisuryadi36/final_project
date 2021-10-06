@@ -10,8 +10,6 @@
 <body>
         <header class="header">
             <nav class="nav flex flex-row flex-jc-sb flex-ai-c">
-                <!-- display overlay menu -->
-                <div class="overlay"></div>
 
                 <!-- site logo -->
                 <a href="./" class="header-logo">
@@ -19,11 +17,11 @@
                 </a>
 
                 <!-- hamburg button -->
-                <a href="#" id="btnHamburger" class="header_toggle desktop-hide">
+                <div id="btnHamburger" class="header_toggle desktop-hide">
                     <span></span>
                     <span></span>
                     <span></span>
-                </a>
+                </div>
 
                 <!-- line menu -->
                 <div class="menu_link flex mobile-hide">
@@ -35,16 +33,18 @@
                     <a href="#">Contact</a>
                 </div>
             </nav>
-
-            <!-- menu in overlay -->
-            <div class="toggle-menu flex flex-column flex-ai-c">
-                <a href="./">Home</a>
-                <a href="#">About</a>
-                <a href="#">Portfolio</a>
-                <a href="#">Blog</a>
-                <a href="#">Team</a>
-                <a href="#">Contact</a>
+            <!-- display overlay menu -->
+            <div class="overlay">
+                <div class="toggle-menu flex flex-column flex-ai-c">
+                    <a href="./">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Team</a>
+                    <a href="#">Contact</a>
+                </div>
             </div>
+            
         </header>
 
         <div class="content flex flex-column flex-ai-c">
@@ -61,7 +61,9 @@
                     <h3>a Photographer</h3>
                 </div>
             </section>
-            <div class="cover-img"><img src="./assets/images/camera.png" alt=""></div>
+            <div class="cover-img">
+                <img src="./assets/images/camera.png" alt="">
+            </div>
         </div>
 
         <footer class="flex flex-ai-c">
