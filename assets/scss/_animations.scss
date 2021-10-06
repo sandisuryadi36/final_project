@@ -1,3 +1,4 @@
+// fadding animation effect
 @keyframes fade-in {
     from {
         visibility: hidden;
@@ -27,4 +28,14 @@
 
 .fade-out {
     animation: fade-out 500ms ease-in-out 1 forwards;
+}
+
+// swing animation effect
+@keyframes swing {
+    0% {
+        transform: rotate(8deg);
+    }
+    100% {
+        transform: rotate(-8deg);
+    }
 }

@@ -2,18 +2,17 @@
 @use 'variables' as var;
 
 .content {
-    flex-direction: column;
-    min-height: calc(100vh - 60px - var.$header-logo-height);
-    padding: 10px 10vw;
+    min-height: calc(100vh - 64px - var.$header-logo-height);
+    padding: 0px 10vw;
     position: relative;
 }
 
 section {
     position: relative;
     width: 100%;
-    // background-color: var.surface_color(7%);
     border-radius: 10px;
     padding: 5px 0;
+    z-index: 1;
 }
 
 .greating {
@@ -25,7 +24,7 @@ section {
         text-align: right;
     }
 
-    >span:first-of-type {
+    >span {
         background-color: var.$primary-color;
         width: 2px;
         border-radius: 50px;
@@ -37,9 +36,26 @@ section {
 
     h2 {
         color: var.$primary-color;
+        color: linear-gradient(45deg, var.$primary-color 0%, var.$secondary-color 100%);
         font-size: 5em;
         @include mixin.breakpoint_down(small){
             font-size: 3em;
         }
+    }
+}
+
+.cover-img {
+    position: absolute;
+    top: -150px;
+    right: 15vw;
+    z-index: 0;
+    transform-origin: center top;
+    animation: swing 2s ease-in-out infinite alternate;
+    @include mixin.breakpoint_down(medium) {
+        right: 10vw;
+    }
+
+    img {
+        width: 300px;
     }
 }
