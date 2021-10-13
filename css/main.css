@@ -199,8 +199,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .fg-patern {
+  pointer-events: none;
   z-index: 2;
-  display: block;
   position: fixed;
   width: 80vw;
   height: 70vh;
@@ -255,6 +255,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 50%;
   background-color: transparent;
   transform: translate(-50%, -50%);
+  pointer-events: auto;
 }
 .fg-patern .in-square:hover > span {
   border-color: rgba(0, 128, 0, 0.5) !important;
@@ -338,6 +339,7 @@ section {
   top: -150px;
   right: 15vw;
   z-index: 0;
+  pointer-events: none;
   transform-origin: center top;
   animation: swing 2s ease-in-out infinite alternate;
 }
