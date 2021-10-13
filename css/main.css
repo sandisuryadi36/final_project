@@ -207,6 +207,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 15vh;
   left: 10vw;
   --border-width: 3px;
+  --border-color: var.surface_color(12%);
 }
 .fg-patern .out-square {
   position: absolute;
@@ -252,7 +253,11 @@ h1, h2, h3, h4, h5, h6 {
   height: 5vw;
   top: 50%;
   left: 50%;
+  background-color: transparent;
   transform: translate(-50%, -50%);
+}
+.fg-patern .in-square:hover > span {
+  border-color: rgba(0, 128, 0, 0.5) !important;
 }
 .fg-patern .in-square > span {
   display: block;
