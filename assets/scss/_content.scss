@@ -1,8 +1,101 @@
 @use 'mixin';
 @use 'variables' as var;
 
+.fg-patern {
+    z-index: 2;
+    display: block;
+    position: fixed;
+    width: 80vw;
+    height: 70vh;
+    top: 15vh;
+    left: 10vw;
+    --border-width : 3px;
+
+    .out-square {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        >span {
+            display: block;
+            position: absolute;
+            width: 10vw;
+            height: 10vh;
+            background-color: transparent;
+            
+            &:nth-child(1) {
+                top: 0;
+                left: 0;
+                border-top: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+                border-left: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+            }
+            &:nth-child(2) {
+                top: 0;
+                right: 0;
+                border-top: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+                border-right: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+            }
+            &:nth-child(3) {
+                bottom: 0;
+                left: 0;
+                border-bottom: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+                border-left: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+            }
+            &:nth-child(4) {
+                bottom: 0;
+                right: 0;
+                border-bottom: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+                border-right: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+            }
+        }
+    }
+    
+    .in-square {
+        position: absolute;
+        width: 5vw;
+        height: 5vw;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        >span {
+            display: block;
+            position: absolute;
+            width: 25%;
+            height: 25%;
+            background-color: transparent;
+
+            &:nth-child(1) {
+                top: 0;
+                left: 0;
+                border-top: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+                border-left: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+            }
+            &:nth-child(2) {
+                top: 0;
+                right: 0;
+                border-top: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+                border-right: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+            }
+            &:nth-child(3) {
+                bottom: 0;
+                left: 0;
+                border-bottom: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+                border-left: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+            }
+            &:nth-child(4) {
+                bottom: 0;
+                right: 0;
+                border-bottom: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+                border-right: var(--border-width) solid rgba(var.surface_color(12%), 0.5);
+            }
+        }
+    }
+}
+
 .content {
-    min-height: 120vh; //calc(100vh - 65px - var.$header-logo-height);
+    min-height: 120vh; //calc(100vh - 66px - var.$header-logo-height);
     padding: 0px 10vw;
     position: relative;
 }

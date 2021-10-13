@@ -81,10 +81,10 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes swing {
   0% {
-    transform: rotate(8deg);
+    transform: rotate(5deg);
   }
   100% {
-    transform: rotate(-8deg);
+    transform: rotate(-5deg);
   }
 }
 .header .nav {
@@ -198,6 +198,94 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
+.fg-patern {
+  z-index: 2;
+  display: block;
+  position: fixed;
+  width: 80vw;
+  height: 70vh;
+  top: 15vh;
+  left: 10vw;
+  --border-width: 3px;
+}
+.fg-patern .out-square {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.fg-patern .out-square > span {
+  display: block;
+  position: absolute;
+  width: 10vw;
+  height: 10vh;
+  background-color: transparent;
+}
+.fg-patern .out-square > span:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-top: var(--border-width) solid rgba(49, 49, 49, 0.5);
+  border-left: var(--border-width) solid rgba(49, 49, 49, 0.5);
+}
+.fg-patern .out-square > span:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-top: var(--border-width) solid rgba(49, 49, 49, 0.5);
+  border-right: var(--border-width) solid rgba(49, 49, 49, 0.5);
+}
+.fg-patern .out-square > span:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-bottom: var(--border-width) solid rgba(49, 49, 49, 0.5);
+  border-left: var(--border-width) solid rgba(49, 49, 49, 0.5);
+}
+.fg-patern .out-square > span:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  border-bottom: var(--border-width) solid rgba(49, 49, 49, 0.5);
+  border-right: var(--border-width) solid rgba(49, 49, 49, 0.5);
+}
+.fg-patern .in-square {
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fg-patern .in-square > span {
+  display: block;
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  background-color: transparent;
+}
+.fg-patern .in-square > span:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-top: var(--border-width) solid rgba(49, 49, 49, 0.5);
+  border-left: var(--border-width) solid rgba(49, 49, 49, 0.5);
+}
+.fg-patern .in-square > span:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-top: var(--border-width) solid rgba(49, 49, 49, 0.5);
+  border-right: var(--border-width) solid rgba(49, 49, 49, 0.5);
+}
+.fg-patern .in-square > span:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-bottom: var(--border-width) solid rgba(49, 49, 49, 0.5);
+  border-left: var(--border-width) solid rgba(49, 49, 49, 0.5);
+}
+.fg-patern .in-square > span:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  border-bottom: var(--border-width) solid rgba(49, 49, 49, 0.5);
+  border-right: var(--border-width) solid rgba(49, 49, 49, 0.5);
+}
+
 .content {
   min-height: 120vh;
   padding: 0px 10vw;
@@ -261,8 +349,11 @@ footer {
   margin: 0;
   padding: 0;
   flex-direction: column;
-  background-color: #242424;
+  background-color: transparent;
+  border-top: 1px solid #242424;
+  backdrop-filter: blur(5px);
   color: #ffffff;
+  z-index: 1;
 }
 
 /*# sourceMappingURL=main.css.map */

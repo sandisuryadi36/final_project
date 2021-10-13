@@ -33,9 +33,9 @@
 // swing animation effect
 @keyframes swing {
     0% {
-        transform: rotate(8deg);
+        transform: rotate(5deg);
     }
     100% {
-        transform: rotate(-8deg);
+        transform: rotate(-5deg);
     }
 }
