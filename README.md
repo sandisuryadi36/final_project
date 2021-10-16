@@ -10,4 +10,4 @@ Dalam pembuatan website ini saya menggunakan teknologi/bahasa pemrograman sebaga
      1. HTML
      2. CSS
      3. SASS
-     4. Javascript
+     4. Javascript (jQuery)
