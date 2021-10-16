@@ -1,51 +1,45 @@
-const btnHamburger = document.querySelector('#btnHamburger')
-const header = document.querySelector('.header')
-const fadding = document.querySelector('.overlay')
-const body = document.querySelector('body')
-const toggle = document.querySelector('.toggle-menu')
-const nav = document.querySelector('.nav')
-
-//script wen hamburger button clicked
-btnHamburger.addEventListener('click', function(){
+//script to handle hamburger menu clicked
+$("#btnHamburger").click(function() {
     console.log('button hamburger clicked')
-
-    //set overlay position and height
-    if (window.pageYOffset >= menu_h) {
-        document.querySelector('.overlay').style.top = 5+ window.pageYOffset + menu_h + "px"
-        document.querySelector('.overlay').style.height = "calc(100vh - 5px - " + menu_h + "px)"
-    } else {
-        document.querySelector('.overlay').style.top = menu_h + "px"
-        document.querySelector('.overlay').style.height = "calc(100vh - " + menu_h + "px + " + window.pageYOffset + "px)"
-    }
+    console.log('nav menu height ' + $(".nav").outerHeight())
+    console.log('nav window offset ' + $(window).scrollTop())
     
-    //handle animation class
-    if (header.classList.contains('open')) {
-        fadding.classList.remove('fade-in')
-        fadding.classList.add('fade-out')
-        header.classList.remove('open')
-        body.classList.remove('noScroll')
-        toggle.classList.remove('fade-in')
-        toggle.classList.add('fade-out')
-        
+    if ($(window).scrollTop() >= $(".nav").outerHeight()) {       
+        $(".overlay").css("top", $(window).scrollTop() + 5)
+        $(".overlay").css("height", $(window).height() - $(".nav").outerHeight() - 5)
     } else {
-        header.classList.add('open')
-        fadding.classList.remove('fade-out')
-        fadding.classList.add('fade-in')
-        body.classList.add('noScroll')
-        toggle.classList.add('fade-in')
-        toggle.classList.remove('fade-out')
+        $(".overlay").css("top", $(".nav").outerHeight())
+        $(".overlay").css("height", $(window).height() - $(window).scrollTop() - $(".nav").outerHeight())
+    }
+
+    if ($(".header").hasClass("open")) {
+        $(".header").toggleClass("open")
+        $(".overlay").removeClass("fade-in")
+        $(".overlay").addClass("fade-out")
+        $(".toggle-menu").removeClass("fade-in")
+        $(".toggle-menu").addClass("fade-out")
+        $("body").toggleClass("noScroll")
+    } else {
+        $(".header").toggleClass("open")
+        $(".overlay").addClass("fade-in")
+        $(".overlay").removeClass("fade-out")
+        $(".toggle-menu").addClass("fade-in")
+        $(".toggle-menu").removeClass("fade-out")
+        $("body").toggleClass("noScroll")
     }
 })
 
-//script for handling sticky nav
-window.onscroll = function () { sticky_nav() }
+//script to handle sticky nav bar
+$(window).scroll(navh = $(".nav").outerHeight(),function () {
+    console.log("scolled " + $(window).scrollTop())
+    console.log('margin top ' + navh)
 
-var menu_h = nav.offsetHeight
-
-function sticky_nav() {
-    if (window.pageYOffset >= menu_h) {
-        nav.classList.add('sticky-nav')
+    if ($(window).scrollTop() >= $(".nav").outerHeight()) {
+        console.log("sticky")
+        $(".nav").addClass("sticky-nav")
+        $(".content").css("margin-top", navh)
     } else {
-        nav.classList.remove('sticky-nav')
+        $(".nav").removeClass("sticky-nav")
+        $(".content").css("margin-top", 0)
     }
-}
+})
