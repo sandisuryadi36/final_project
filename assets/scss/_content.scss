@@ -361,15 +361,17 @@ section {
     display: grid;
     grid-template-columns: 30% 70%;
     position: relative;
+    width: fit-content;
+    left: 50%;
+    transform: translateX(-50%);
     @include mixin.breakpoint_down(small) {
         display: block;
-        margin-left: 12vw;
     }
 }
 
 .skill {
-    margin: 0 20px;
-    padding: 10px 10px 10px 5vw;
+    margin-right: 20px;
+    padding: 10px 10px 10px 0;
     text-align: right;
     position: relative;
     @include mixin.breakpoint_down(medium){
@@ -395,7 +397,6 @@ section {
         height: 14px;
     }
     @include mixin.breakpoint_down(small){
-        margin-left: 20px;
         height: 10px;
     }
 
