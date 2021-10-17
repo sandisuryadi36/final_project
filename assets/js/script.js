@@ -22,6 +22,7 @@ $("#btnHamburger").click(function () {
 
 $(window).on("navigate", function (event, data) {
     if ((data.state.direction == "back") && ($(".header").hasClass("open"))) {
+        alert("back")
         toggleMenu()
     }
 })
