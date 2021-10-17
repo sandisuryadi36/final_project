@@ -8,111 +8,193 @@
     <title>Suryadi Photo</title>
 </head>
 <body>
-        <header class="header">
-            <nav class="nav flex flex-row flex-jc-sb flex-ai-c">
+    <!-- head start -->
+    <header class="header">
+        <nav class="nav flex flex-row flex-jc-sb flex-ai-c">
 
-                <!-- site logo -->
-                <a href="./" class="header-logo">
-                    <img src="./assets/images/logo-white.png" alt="Suryadi Photo">
-                </a>
+            <!-- site logo -->
+            <a href="./" class="header-logo">
+                <img src="./assets/images/logo-white.png" alt="Suryadi Photo">
+            </a>
 
-                <!-- hamburg button -->
-                <div id="btnHamburger" class="header_toggle desktop-hide">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-                <!-- line menu -->
-                <div class="menu_link flex tablet-hide">
-                    <a href="./">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Portfolio</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Team</a>
-                    <a href="#">Contact</a>
-                </div>
-            </nav>
-            
-            <!-- display overlay menu -->
-            <div class="overlay">
-                <div class="toggle-menu">
-                    <a href="./">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Portfolio</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Team</a>
-                    <a href="#">Contact</a>
-                </div>
-            </div>
-            
-        </header>
-
-        <div class="fg-patern">
-            <div class="out-square">
-                <span></span>
+            <!-- hamburg button -->
+            <div id="btnHamburger" class="header_toggle desktop-hide">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <div class="in-square">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <!-- line menu -->
+            <div class="menu_link flex tablet-hide">
+                <a href="./">Home</a>
+                <a href="#">About</a>
+                <a href="#">Experience</a>
+                <a href="#">Skills</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+        
+        <!-- display overlay menu -->
+        <div class="overlay">
+            <div class="toggle-menu">
+                <a href="./">Home</a>
+                <a href="#">About</a>
+                <a href="#">Experience</a>
+                <a href="#">Skills</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Contact</a>
             </div>
         </div>
+        
+    </header>
+    <!-- end of head -->
 
-        <div class="content flex flex-column flex-ai-c">
-
-            <!-- greating text -->
-            <section id="board1" class="flex flex-row">
-                <div  class="greating flex flex-row">
-                    <div>
-                        <h3>hello</h3>
-                        <h3>I'm </h3>
-                    </div>
-                    <span class="ver-line mobile-hide"></span>
-                    <div>
-                        <h2>Sandi Suryadi</h2>
-                        <h3>a Photographer</h3>
-                    </div>
-                </div>
-                <div class="cover-img">
-                    <img src="./assets/images/camera.png" alt="">
-                </div>
-            </section>
-            <section id="board2">
-                <div class="head">
-                    <img src="./assets/images/dp.jpg" alt="display picture" class="display-img">
-
-                    <span class="ver-line mobile-hide"></span>
-                    
-                    <div class="bio">
-                        <span class="label">Full Name</span>
-                        <span class="details">Sandi Suryadi</span>
-                        <span class="label">Age</span>
-                        <span class="details" id="age"></span>
-                        <span class="label">Based in</span>
-                        <span class="details">Bandung</span>
-                    </div>
-
-                    <div class="speciality">
-                        <span class="label">Speciality</span>
-                        <span class="details">Product Photography</span>
-                    </div>
-                </div>
-
-            </section>
+    <!-- view camera display effect -->
+    <div class="fg-patern">
+        <div class="out-square">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+        <div class="in-square">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- end of effect -->
 
-        <footer class="flex flex-ai-c">
-            <div class="copyright">
-                <p>Copyright &copy 2021 Sandi Suryadi</p>
+    <!-- content start -->
+    <div class="content flex flex-column flex-ai-c">
+
+        <!-- greating section -->
+        <section id="board1" class="flex flex-row">
+            <div  class="greating flex flex-row">
+                <div>
+                    <h3>hello</h3>
+                    <h3>I'm </h3>
+                </div>
+                <span class="ver-line"></span>
+                <div>
+                    <h2>Sandi Suryadi</h2>
+                    <h3>a Photographer</h3>
+                </div>
             </div>
-        </footer>
+            <div class="cover-img">
+                <img src="./assets/images/camera.png" alt="">
+            </div>
+        </section>
+        <section id="board2">
+            <div class="head">
+                <img src="./assets/images/dp.jpg" alt="display picture" class="display-img">
 
-        <script src="./assets/js/jquery-3.6.0.min.js"></script>
-        <script src="./assets/js/script.js"></script>
+                <span class="ver-line mobile-hide"></span>
+                
+                <div class="bio">
+                    <span class="label">Full Name</span>
+                    <span class="details">Sandi Suryadi</span>
+                    <span class="label">Age</span>
+                    <span class="details" id="age"></span>
+                    <span class="label">Based in</span>
+                    <span class="details">Bandung</span>
+                </div>
+
+                <div class="speciality">
+                    <span class="label">Speciality</span>
+                    <span class="details">Product Photography</span>
+                </div>
+            </div>
+
+            <div class="about">
+                <h3>About me</h3>
+                <p>
+                    I am a photographer that is certified from Lembaga Sertifikasi Kompetensi Fotografi Indonesia (LESKOFI) as 3rd level in
+                    KKNI. I have a lot of experience in portrait, fashion, and product photography. I am a person who can work either independently or as a part of a team, a hard worker, and a fast learner.
+                </p>
+            </div>
+        </section>
+        <section id="board3">
+            <h2>Work Experience</h2>
+            <span class="mid-line"></span>
+            <!-- experience 5 -->
+            <div class="experience"> 
+                <div class="time">
+                    <h3 class="year">2021</h5>
+                    <h5 class="duaration">January - October</h5>
+                    <span class="dot"></span>
+                </div>
+                <div class="details">
+                    <h3 class="title">Photographer</h5>
+                    <h5 class="place">Grob Media</h5>
+                    <p class="desciption">I handle task for ceating idea and do photo production for variety clients.</p>
+                </div>
+            </div>
+            <!-- experience 4 -->
+            <div class="experience">
+                <div class="time">
+                    <h3 class="year">2020</h5>
+                    <h5 class="duaration">April - December</h5>
+                    <span class="dot"></span>
+                </div>
+                <div class="details">
+                    <h3 class="title">Product Photographer and Editor</h5>
+                    <h5 class="place">GMSGHB Fashion Group</h5>
+                    <p class="desciption">I handle task for take product photo session , editing photo, create conten for marketplace and Instagram.</p>
+                </div>
+            </div>
+            <!-- experience 3 -->
+            <div class="experience">
+                <div class="time">
+                    <h3 class="year">2018 - 2020</h5>
+                    <span class="dot"></span>
+                </div>
+                <div class="details">
+                    <h3 class="title">Senior Photographer</h5>
+                    <h5 class="place">Papyrus Photo Studio</h5>
+                    <p class="desciption">I handle task for take studio photo session , editing photo, give training for junior photographer, and doing any extra project.</p>
+                </div>
+            </div>
+            <!-- experience 2 -->
+            <div class="experience">
+                <div class="time">
+                    <h3 class="year">2016 - Now</h5>
+                    <span class="dot"></span>
+                </div>
+                <div class="details">
+                    <h3 class="title">Freelance Photographer</h5>
+                    <p class="desciption">I take project from any client for photograph fashion, product, portrait, profile, and documentation.</p>
+                </div>
+            </div>
+            <!-- experience 1 -->
+            <div class="experience">
+                <div class="time">
+                    <h3 class="year">2015 - 2017</h5>
+                    <span class="dot"></span>
+                </div>
+                <div class="details">
+                    <h3 class="title">IT and Online Marketing Admin</h5>
+                    <h5 class="place">IARG Service</h5>
+                    <p class="desciption">IARG Service is a training and consultant corporate. And I handle website development and online marketing task.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- end of content -->
+
+    <!-- footer start -->
+    <footer class="flex flex-ai-c">
+        <div class="copyright">
+            <p>Copyright &copy 2021 Sandi Suryadi</p>
+        </div>
+    </footer>
+    <!-- end of footer -->
+
+    <!-- script -->
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <!-- end of script -->
 </body>
 </html>

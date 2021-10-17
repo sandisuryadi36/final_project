@@ -375,7 +375,8 @@ section {
   position: relative;
   background-color: #242424;
 }
-#board2 .head {
+
+.head {
   height: fit-content;
   position: relative;
   padding: 0 5vw;
@@ -384,31 +385,31 @@ section {
   justify-content: flex-start;
 }
 @media (max-width: 639px) {
-  #board2 .head {
+  .head {
     flex-direction: column;
     gap: 10px;
     align-items: center;
     text-align: center;
   }
 }
-#board2 .head .bio {
+.head .bio {
   margin-left: 10px;
   margin-top: auto;
   margin-bottom: auto;
 }
 @media (max-width: 639px) {
-  #board2 .head .bio {
+  .head .bio {
     margin-left: 0;
   }
 }
-#board2 .head .label {
+.head .label {
   margin: 0;
   padding: 0;
   font-size: 0.7em;
   display: block;
   position: relative;
 }
-#board2 .head .details {
+.head .details {
   margin: 1px 0 15px 0px;
   padding: 0;
   letter-spacing: 3px;
@@ -417,25 +418,25 @@ section {
   display: block;
   position: relative;
 }
-#board2 .head .details:last-child {
+.head .details:last-child {
   margin-bottom: 0;
 }
-#board2 .head .speciality {
+.head .speciality {
   margin-left: 30%;
   margin-top: auto;
   margin-bottom: auto;
 }
 @media (max-width: 1023px) {
-  #board2 .head .speciality {
+  .head .speciality {
     margin-left: 15%;
   }
 }
 @media (max-width: 639px) {
-  #board2 .head .speciality {
+  .head .speciality {
     margin-left: 0;
   }
 }
-#board2 .head .display-img {
+.head .display-img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -444,9 +445,104 @@ section {
   margin-bottom: auto;
 }
 @media (max-width: 639px) {
-  #board2 .head .display-img {
+  .head .display-img {
     margin: 0;
   }
+}
+
+.about {
+  margin: 20px 20px 0 20px;
+  padding: 20px 5vw;
+  text-align: center;
+  background-color: #292929;
+  border-radius: 10px;
+}
+
+#board3 {
+  margin: 20px 0;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+}
+#board3 h2 {
+  color: #32e0ff;
+}
+#board3 .mid-line {
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  width: 5px;
+  background-color: #32e0ff;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (max-width: 639px) {
+  #board3 .mid-line {
+    left: 5vw;
+  }
+}
+#board3 .experience {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 20px 5vw;
+  margin: 20px 0;
+  position: relative;
+}
+@media (max-width: 639px) {
+  #board3 .experience {
+    display: block;
+  }
+}
+#board3 .experience:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+#board3 .experience:hover .year, #board3 .experience:hover .title {
+  color: #32e0ff;
+}
+#board3 .experience:hover .time > .dot {
+  width: 15px;
+  height: 15px;
+}
+#board3 .experience .time {
+  padding: 0 30px;
+  text-align: right;
+  position: relative;
+}
+@media (max-width: 639px) {
+  #board3 .experience .time {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+}
+#board3 .experience .time .dot {
+  background-color: #ffffff;
+  border-radius: 50%;
+  border: 4px solid #32e0ff;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 15px;
+  left: 100%;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 639px) {
+  #board3 .experience .time .dot {
+    left: 0;
+  }
+}
+#board3 .experience .details {
+  padding: 0 30px;
+  text-align: left;
+}
+#board3 .experience .details .place::before {
+  content: "at";
+  font-weight: 200;
+  font-size: 0.8em;
+  margin-right: 5px;
+}
+#board3 .experience .details .description {
+  margin: 10px 0;
 }
 
 footer {
