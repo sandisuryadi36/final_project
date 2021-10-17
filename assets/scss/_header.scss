@@ -37,8 +37,8 @@
                 }
             }
             
-            a:hover {
-                color: var.$primary-color;
+            a:hover, .active {
+                color: var.$primary-color !important;
 
                 &::before {
                     background-color: var.$primary-color;
