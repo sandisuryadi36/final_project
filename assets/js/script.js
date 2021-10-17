@@ -20,12 +20,18 @@ $("#btnHamburger").click(function () {
     toggleMenu()
 })
 
-$(window).on("navigate", function (event, data) {
-    if ((data.state.direction == 'back') && ($(".header").hasClass("open"))) {
-        alert("back")
+$(document).on("pagecontainerbeforechange", function (e, data) {
+    if (typeof data.toPage == "string" && data.options.direction == "back" && data.prevPage[0].id == "result" && $(".header").hasClass("open")) {
         toggleMenu()
     }
-})
+});
+
+// $(window).on("navigate", function (event, data) {
+//     if ((data.state.direction == 'back') && ($(".header").hasClass("open"))) {
+//         alert("back")
+//         toggleMenu()
+//     }
+// })
 
 //script to handle sticky nav bar
 $(window).scroll(navh = $(".nav").outerHeight(),function () {
