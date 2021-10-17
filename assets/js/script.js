@@ -1,5 +1,11 @@
 //script to handle hamburger menu clicked
-$("#btnHamburger").click(function() {
+function toggleMenu() {
+    $(".header").toggleClass("open")
+    $(".overlay, .toggle-menu").fadeToggle("500ms")
+    $("body").toggleClass("noScroll")
+}
+
+$("#btnHamburger").click(function () {
     
     //set top position and height
     if ($(window).scrollTop() >= $(".nav").outerHeight()) {       
@@ -11,10 +17,13 @@ $("#btnHamburger").click(function() {
     }
 
     //toggle the display
-    $(".header").toggleClass("open")
-    $(".overlay, .toggle-menu").fadeToggle("500ms")
-    $("body").toggleClass("noScroll")
+    toggleMenu()
+})
 
+$(window).on("navigate", function (event, data) {
+    if ((data.state.direction == "back") && ($(".header").hasClass("open"))) {
+        toggleMenu()
+    }
 })
 
 //script to handle sticky nav bar
