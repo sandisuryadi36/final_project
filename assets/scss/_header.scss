@@ -104,9 +104,9 @@
 
     .overlay {
         display: block;
-        visibility: hidden;
+        // visibility: hidden;
+        display: none;
         position: absolute;
-        // height: calc(100vh - 65px - var.$header-logo-height);
         left: 0;
         right: 0;
         background-image: linear-gradient(rgba($color: var.surface_color(9%), $alpha: 0.75), transparent);
@@ -115,7 +115,9 @@
     }
     
     .toggle-menu {
-        visibility: hidden;
+        // visibility: hidden;
+        display: none;
+        text-align: center;
         width: calc(100% - calc(var.$side-padding * 2));
         padding: 15px 0px;
         border-radius: 5px;

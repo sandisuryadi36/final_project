@@ -1,16 +1,38 @@
 @use 'mixin';
 @use 'variables' as var;
 
+.ver-line {
+    background-color: var.$primary-color;
+    width: 2px;
+    border-radius: 50px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    margin: 0 10px;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.content {
+    min-height: 120vh; //calc(100vh - 66px - var.$header-logo-height);
+    padding: 0px 10vw;
+    position: relative;
+}
+
 .fg-patern {
     pointer-events: none;
     z-index: 2;
     position: fixed;
     width: 80vw;
     height: 70vh;
-    top: 15vh;
-    left: 10vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     --border-width : 3px;
-    --border-color : var.surface_color(12%);
 
     .out-square {
         position: absolute;
@@ -103,37 +125,18 @@
     }
 }
 
-.content {
-    min-height: 120vh; //calc(100vh - 66px - var.$header-logo-height);
-    padding: 0px 10vw;
-    position: relative;
-}
-
-section {
-    position: relative;
-    width: 100%;
-    border-radius: 10px;
-    padding: 5px 0;
-    z-index: 1;
+#board1 {
+    min-height: 700px;
 }
 
 .greating {
     position: relative;
+    height: fit-content;
     top: 20vh;
     padding: 0;
 
     >div:first-of-type {
         text-align: right;
-    }
-
-    >span {
-        background-color: var.$primary-color;
-        width: 2px;
-        border-radius: 50px;
-        position: relative;
-        top: 0;
-        bottom: 0;
-        margin: 0 10px;
     }
 
     h2 {
@@ -150,15 +153,91 @@ section {
     position: absolute;
     top: -150px;
     right: 15vw;
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
     transform-origin: center top;
     animation: swing 2s ease-in-out infinite alternate;
-    @include mixin.breakpoint_down(medium) {
-        right: 10vw;
-    }
-
+    @include mixin.breakpoint_down(medium) {right: 10vw;}
+    @include mixin.breakpoint_down(small) {right: 0;}
+    
     img {
         width: 300px;
+    }
+}
+
+#board2 {
+    margin: 20px 0;
+    padding: 20px 0;
+    position: relative;
+    background-color: var.surface_color(7%);
+
+    .head {
+        height: fit-content;
+        position: relative;
+        padding: 0 5vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        @include mixin.breakpoint_down(small) {
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .bio {
+            margin-left: 10px;
+            margin-top: auto;
+            margin-bottom: auto;
+            @include mixin.breakpoint_down(small) {
+                margin-left: 0;
+            }
+        }
+
+        .label {
+            margin: 0;
+            padding: 0;
+            font-size: 0.7em;
+            display: block;
+            position: relative;
+        }
+
+        .details {
+            margin: 1px 0 15px 0px;
+            padding: 0;
+            letter-spacing: 3px;
+            font-weight: 600;
+            color: var.$primary-color;
+            display: block;
+            position: relative;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .speciality {
+            margin-left: 30%;
+            margin-top: auto;
+            margin-bottom: auto;
+            @include mixin.breakpoint_down(medium) {
+                margin-left: 15%;
+            }
+            @include mixin.breakpoint_down(small) {
+                margin-left: 0;
+            }
+        }
+
+        .display-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 30px;
+            margin-top: auto;
+            margin-bottom: auto;
+            @include mixin.breakpoint_down(small) {
+                margin: 0;;
+            }
+        }
     }
 }
