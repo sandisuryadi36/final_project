@@ -1,16 +1,6 @@
 @use 'mixin';
 @use 'variables' as var;
 
-.ver-line {
-    background-color: var.$primary-color;
-    width: 2px;
-    border-radius: 50px;
-    position: relative;
-    top: 0;
-    bottom: 0;
-    margin: 0 10px;
-}
-
 section {
     position: relative;
     width: 100%;
@@ -158,10 +148,26 @@ section {
         color: var.$primary-color;
         color: linear-gradient(45deg, var.$primary-color 0%, var.$secondary-color 100%);
         font-size: 5em;
+        transition: all 300ms ease-in-out;
+
+        &:hover{
+            transform: scale(1.05);
+        }
+
         @include mixin.breakpoint_down(small){
             font-size: 3em;
         }
     }
+}
+
+.ver-line {
+    background-color: var.$primary-color;
+    width: 2px;
+    border-radius: 50px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    margin: 0 20px;
 }
 
 .cover-img {
@@ -274,11 +280,16 @@ section {
 .pTitle {
     color: var.$primary-color;
     text-align: center;
+    font-size: 3em;
+    margin-bottom: 20px;
+    @include mixin.breakpoint_down(small){
+        font-size: 2em;
+    }
 }
 
 .mid-line {
     position: absolute;
-    top: 70px;
+    top: 100px;
     bottom: 0;
     width: 5px;
     background-color: var.$primary-color;
@@ -295,6 +306,7 @@ section {
     padding: 20px 5vw;
     margin: 20px 0;
     position: relative;
+    transition: all 300ms ease-in-out;
     @include mixin.breakpoint_down(small){
         display: block;
     }
@@ -305,6 +317,8 @@ section {
     }
 
     &:hover {
+        transform: scale(1.1);
+
         .year, .title {
             color: var.$primary-color;
         }
@@ -407,5 +421,59 @@ section {
         position: absolute;
         top: 0;
         left: 0;
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-flow: dense;
+    grid-auto-rows: 250px;
+    gap: 20px;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+}
+
+.frame {
+    margin: 0;
+    width: fit-content;
+    height: 250;
+    overflow: hidden;
+    position: relative;
+    transition: 200ms;
+    cursor: pointer;
+    
+    img {
+        max-width: 250px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 300ms ease-in-out;
+        margin: 0;
+        padding: 0;
+    }
+    
+    > span {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: black;
+        opacity: 0.3;
+        transition: opacity 200ms ease-in-out;
+    }
+    
+    &:hover {
+        img {
+            transform: translateX(-50%) scale(1.1);
+        }
+        
+        > span {
+            opacity: 0;
+        }
     }
 }

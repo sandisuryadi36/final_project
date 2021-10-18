@@ -22,15 +22,17 @@ $("#btnHamburger").click(function () {
     toggleMenu()
 })
 
+//click empty space to toggle menu
 $(".overlay").click(function () {
     if ($(".header").hasClass("open")) {
         toggleMenu()
     }
 })
 
-//script to handle sticky nav bar
+//scrolling page triger
 $(window).scroll(navh = $(".nav").outerHeight(),function () {
-
+    
+    //script to handle sticky nav bar
     if ($(window).scrollTop() >= $(".nav").outerHeight()) {
         $(".nav").addClass("sticky-nav")
         $(".content").css("margin-top", navh)
@@ -39,9 +41,7 @@ $(window).scroll(navh = $(".nav").outerHeight(),function () {
         $(".content").css("margin-top", 0)
     }
 
-    console.log($("#about").offset().top)
-    console.log($(window).scrollTop() + ($(window).height() / 2))
-
+    //handle active menu effect
     if ($(window).scrollTop() + ($(window).height() / 2) >= $("#skills").offset().top) {
         $(".menu_link > *").removeClass("active")
         $("#mSkills").addClass("active")
