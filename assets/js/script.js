@@ -42,7 +42,10 @@ $(window).scroll(navh = $(".nav").outerHeight(),function () {
     }
 
     //handle active menu effect
-    if ($(window).scrollTop() + ($(window).height() / 2) >= $("#skills").offset().top) {
+    if ($(window).scrollTop() + ($(window).height() / 2) >= $("#portfolio").offset().top) {
+        $(".menu_link > *").removeClass("active")
+        $("#mPortfolio").addClass("active")
+    } else if ($(window).scrollTop() + ($(window).height() / 2) >= $("#skills").offset().top) {
         $(".menu_link > *").removeClass("active")
         $("#mSkills").addClass("active")
     } else if ($(window).scrollTop() + ($(window).height() / 2) >= $("#experience").offset().top) {
@@ -68,3 +71,33 @@ var dateBirth = new Date("03/01/1994")
 var age = Math.floor((d.getTime() - dateBirth.getTime()) / (1000 * 3600 * 24 * 365))
 
 $("#age").append(age + " years old")
+
+//get pictures array from directory
+$(function () {
+
+    var baseUrl = "/assets/portfolio/"
+    var pictures = []
+
+
+    $.ajax({
+        url: baseUrl,
+        success: function (data) {
+            pictures = []
+            var i = 0
+            $(data).find("a").each(function () {
+                var href = $(this).attr('href')
+                if (href.match(/\.(jpe?g|JPE?G|png|PNG|gif|GIF)$/)) {
+                    pictures.push(href)
+                    makeGrid(".grid-container", href, i)
+                    i++
+                }
+            })
+        }
+    })
+
+    //function to display to grid
+    function makeGrid(container, link, i) {
+        $(container).append("<div id='grid"+ i +"' clas='grid-item'></div>")
+        $("#grid" + i).append("<div class='frame'><img src='"+ link +"'><span class'mobile-hide'></span></div>")
+    }
+});

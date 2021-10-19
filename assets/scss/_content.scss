@@ -448,7 +448,7 @@ section {
 .frame {
     margin: 0;
     width: fit-content;
-    height: 250;
+    height: 250px;
     overflow: hidden;
     position: relative;
     transition: 200ms;
@@ -457,8 +457,9 @@ section {
     img {
         max-width: 250px;
         position: relative;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         transition: all 300ms ease-in-out;
         margin: 0;
         padding: 0;
@@ -477,7 +478,7 @@ section {
     
     &:hover {
         img {
-            transform: translateX(-50%) scale(1.1);
+            transform: translate(-50%, -50%) scale(1.1);
         }
         
         > span {
