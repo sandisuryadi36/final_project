@@ -436,7 +436,6 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-flow: dense;
-    grid-auto-rows: 250px;
     gap: 20px;
 }
 
@@ -484,5 +483,27 @@ section {
         > span {
             opacity: 0;
         }
+    }
+}
+
+.preview {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    background-color: rgba(var.surface_color(12%), 0.3);
+    backdrop-filter: blur(5px);
+    z-index: 5;
+
+    img {
+        position: fixed;
+        width: auto;
+        z-index: 5;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }

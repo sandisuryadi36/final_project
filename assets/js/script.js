@@ -101,3 +101,32 @@ $(function () {
         $("#grid" + i).append("<div class='frame'><img src='"+ link +"'><span class'mobile-hide'></span></div>")
     }
 });
+
+//image clicked
+var pWidth = 0
+
+$(document).on("click", ".frame", function () {
+    var imgURL = $(this).children("img").attr("src")
+
+    $("body").append("<div class='preview'></div>")
+    $(".preview").append("<img src='" + imgURL + "'>")
+    $(".preview").fadeToggle(500)
+    $("body").toggleClass("noScroll")
+})
+
+$(document).on("click", ".preview", function () {
+    $(".preview").fadeToggle(500).queue(function () {
+        $(".preview").remove()
+        $(this).dequeue()
+    })
+    $("body").toggleClass("noScroll")
+})
+
+// //resize window function
+// $(window).resize(function () {
+//     if ($(window).width() < pWidth + 100) {
+//         $(".preview").children("img").css("width", $(window).width() - 100)
+//     } else {
+//         $(".preview").children("img").css("width", "auto")
+//     }
+// })
