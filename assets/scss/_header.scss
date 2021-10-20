@@ -16,12 +16,13 @@
         .menu_link {
             position: relative;
             gap: 20px;
-            a, a:visited, a:hover {
+            p {
                 position: relative;
                 color: var.$onSur-color;
                 text-decoration: none;
                 font-weight: 400;
                 transition: color 300ms ease-in-out;
+                cursor: pointer;
 
                 &::before {
                     content: "";
@@ -37,7 +38,7 @@
                 }
             }
             
-            a:hover, .active {
+            p:hover, .active {
                 color: var.$primary-color !important;
 
                 &::before {

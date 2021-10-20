@@ -141,14 +141,15 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   gap: 20px;
 }
-.header .nav .menu_link a, .header .nav .menu_link a:visited, .header .nav .menu_link a:hover {
+.header .nav .menu_link p {
   position: relative;
   color: #ffffff;
   text-decoration: none;
   font-weight: 400;
   transition: color 300ms ease-in-out;
+  cursor: pointer;
 }
-.header .nav .menu_link a::before, .header .nav .menu_link a:visited::before, .header .nav .menu_link a:hover::before {
+.header .nav .menu_link p::before {
   content: "";
   position: absolute;
   height: 3px;
@@ -160,10 +161,10 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   transition: opacity 300ms ease-in-out;
 }
-.header .nav .menu_link a:hover, .header .nav .menu_link .active {
+.header .nav .menu_link p:hover, .header .nav .menu_link .active {
   color: #32e0ff !important;
 }
-.header .nav .menu_link a:hover::before, .header .nav .menu_link .active::before {
+.header .nav .menu_link p:hover::before, .header .nav .menu_link .active::before {
   background-color: #32e0ff;
   opacity: 1;
 }
@@ -288,7 +289,6 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: all 300ms;
   --border-width: 3px;
 }
 .fg-patern .out-square {

@@ -27,24 +27,24 @@
 
             <!-- line menu -->
             <div class="menu_link flex tablet-hide">
-                <a id="mHome" class="menuBtn" href="#">Home</a>
-                <a id="mAbout" class="menuBtn" href="#about">About</a>
-                <a id="mExperience" class="menuBtn" href="#experience">Experience</a>
-                <a id="mSkills" class="menuBtn" href="#skills">Skills</a>
-                <a id="mPortfolio" class="menuBtn" href="#portfolio">Portfolio</a>
-                <a id="mContact" class="menuBtn" href="#contact">Contact</a>
+                <p id="mHome" class="menuBtn" scroll-to="#">Home</p>
+                <p id="mAbout" class="menuBtn" scroll-to="#about">About</p>
+                <p id="mExperience" class="menuBtn" scroll-to="#experience">Experience</p>
+                <p id="mSkills" class="menuBtn" scroll-to="#skills">Skills</p>
+                <p id="mPortfolio" class="menuBtn" scroll-to="#portfolio">Portfolio</p>
+                <p id="mContact" class="menuBtn" scroll-to="#contact">Contact</p>
             </div>
         </nav>
         
         <!-- display overlay menu -->
         <div class="overlay">
             <div class="toggle-menu">
-                <a href="#" class="menuBtn">Home</a>
-                <a href="#about" class="menuBtn">About</a>
-                <a href="#experience" class="menuBtn">Experience</a>
-                <a href="#skills" class="menuBtn">Skills</a>
-                <a href="#portfolio" class="menuBtn">Portfolio</a>
-                <a href="#contact" class="menuBtn">Contact</a>
+                <p class="menuBtn" scroll-to="#">Home</p>
+                <p class="menuBtn" scroll-to="#about">About</p>
+                <p class="menuBtn" scroll-to="#experience">Experience</p>
+                <p class="menuBtn" scroll-to="#skills">Skills</p>
+                <p class="menuBtn" scroll-to="#portfolio">Portfolio</p>
+                <p class="menuBtn" scroll-to="#contact">Contact</p>
             </div>
         </div>
         
@@ -272,6 +272,13 @@
                     <a href="https://github.com/sandisuryadi36" target="_blank"><img class="sos-icon" src="./assets/images/github.png" alt=""></a>
                 </div>
                 <p>Email : sandisuryadi.mail@gmail.com</p>
+                <form action=”mailto:sandisuryadi.mail@gmail.com” method=”POST” enctype=”multipart/form-data” name=”EmailForm” data-netlify="true">
+                    Name:<br>
+                    <input type=”text” size=”19″ name=”ContactName”>
+                    <br><br>
+                    Message:<br> <textarea name=”ContactCommentt” rows=”6″ cols=”20″></textarea>
+                    <br><br>
+                    <input type="submit" value="Submit" id="btsubmit"><br>
             </div>
         </section>
     </div>

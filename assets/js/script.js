@@ -1,9 +1,13 @@
 $(".anchor").css("bottom", $(".nav").outerHeight() + 5)
 
+//menu click behavior
 $(".menuBtn").on("click", function () {
-    setTimeout(function () {
-        history.replaceState('', document.title, window.location.origin + window.location.pathname + window.location.search)
-    }, 5)
+    var target = $(this).attr("scroll-to")
+    if (target == "#") {
+        document.querySelector("html").scrollIntoView({ behavior: "smooth", block : "start" })
+    } else {
+        document.querySelector(target).scrollIntoView({ behavior: "smooth", block : "start" })
+    }
 })
 
 //script to handle hamburger menu clicked
@@ -68,6 +72,10 @@ $(window).scroll(navh = $(".nav").outerHeight(),function () {
         $("#mHome").addClass("active")
     }
 
+    //close preview if active
+    if ($(".preview").length == 1) {
+        closePreview()
+    }
 })
 
 //handle my age
@@ -126,11 +134,15 @@ function displayPreview(link) {
     $(".preview").fadeToggle(500)
 }
 
-$(document).on("click", ".preview", function () {
+function closePreview() {
     $(".preview").fadeToggle(500).queue(function () {
         $(".preview").remove()
         $(this).dequeue()
     })
+}
+
+$(document).on("click", ".preview", function () {
+    closePreview()
 })
 
 $(document).on("click", "#angin", function () {
