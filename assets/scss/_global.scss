@@ -108,11 +108,14 @@ h1, h2, h3, h4, h5, h6 {
 
 button {
     padding: 5px 20px;
-    width: 10vw;
+    width: 15vw;
     background-color: var.surface_color(15%);
     border-radius: 30px;
     margin: 20px;
     color: var.$onSur-color;
+    @include mixin.breakpoint_down(small){
+        width: 25vw;
+    }
 
     &:hover, &:focus {
         background-color: var.$primary-color;

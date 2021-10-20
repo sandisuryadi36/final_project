@@ -92,11 +92,16 @@ h1, h2, h3, h4, h5, h6 {
 
 button {
   padding: 5px 20px;
-  width: 10vw;
+  width: 15vw;
   background-color: #383838;
   border-radius: 30px;
   margin: 20px;
   color: #ffffff;
+}
+@media (max-width: 639px) {
+  button {
+    width: 25vw;
+  }
 }
 button:hover, button:focus {
   background-color: #32e0ff;
@@ -804,6 +809,9 @@ form textarea {
   width: 100%;
   max-width: 75%;
   margin: 20px;
+}
+form .recaptcha {
+  transform: scale(0.6);
 }
 form .input-box {
   position: relative;
