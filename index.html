@@ -272,12 +272,13 @@
                     <a href="https://github.com/sandisuryadi36" target="_blank"><img class="sos-icon" src="./assets/images/github.png" alt=""></a>
                 </div>
                 <p>Email : sandisuryadi.mail@gmail.com</p>
-                <form action=”mailto:sandisuryadi.mail@gmail.com” method=”POST” enctype=”multipart/form-data” name=”EmailForm” data-netlify="true">
+                <form action=”mailto:sandisuryadi.mail@gmail.com” method=”POST” data-netlify-recaptcha="true" name=”EmailForm” data-netlify="true">
                     Name:<br>
                     <input type=”text” size=”19″ name=”ContactName”>
                     <br><br>
                     Message:<br> <textarea name=”ContactCommentt” rows=”6″ cols=”20″></textarea>
                     <br><br>
+                    <div data-netlify-recaptcha="true"></div>
                     <input type="submit" value="Submit" id="btsubmit"><br>
             </div>
         </section>
