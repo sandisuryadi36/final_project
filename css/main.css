@@ -800,7 +800,7 @@ form {
   align-items: center;
   border-radius: 10px;
   background-color: #313131;
-  padding: 20px;
+  padding: 20px 0;
 }
 form > input, form > label {
   position: relative;
@@ -808,10 +808,10 @@ form > input, form > label {
 form textarea {
   width: 100%;
   max-width: 75%;
-  margin: 20px;
+  margin: 20px 0;
 }
 form .recaptcha {
-  transform: scale(0.6);
+  transform: scale(0.8);
 }
 form .input-box {
   position: relative;

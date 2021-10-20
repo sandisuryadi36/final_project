@@ -543,7 +543,7 @@ form {
     align-items: center;
     border-radius: 10px;
     background-color: var.surface_color(12%);
-    padding: 20px;
+    padding: 20px 0;
 
     > input, > label {
         position: relative
@@ -552,11 +552,11 @@ form {
     textarea {
         width: 100%;
         max-width: 75%;
-        margin: 20px;
+        margin: 20px 0;
     }
 
     .recaptcha {
-        transform: scale(0.6);
+        transform: scale(0.8);
     }
 
     .input-box {
