@@ -1,5 +1,11 @@
 $(".anchor").css("bottom", $(".nav").outerHeight() + 5)
 
+$(".menuBtn").on("click", function () {
+    setTimeout(function () {
+        history.replaceState('', document.title, window.location.origin + window.location.pathname + window.location.search)
+    }, 5)
+})
+
 //script to handle hamburger menu clicked
 function toggleMenu() {
     $(".header").toggleClass("open")
@@ -42,7 +48,10 @@ $(window).scroll(navh = $(".nav").outerHeight(),function () {
     }
 
     //handle active menu effect
-    if ($(window).scrollTop() + ($(window).height() / 2) >= $("#portfolio").offset().top) {
+    if ($(window).scrollTop() + ($(window).height() / 2) >= $("#contact").offset().top) {
+        $(".menu_link > *").removeClass("active")
+        $("#mContact").addClass("active")
+    } else if ($(window).scrollTop() + ($(window).height() / 2) >= $("#portfolio").offset().top) {
         $(".menu_link > *").removeClass("active")
         $("#mPortfolio").addClass("active")
     } else if ($(window).scrollTop() + ($(window).height() / 2) >= $("#skills").offset().top) {

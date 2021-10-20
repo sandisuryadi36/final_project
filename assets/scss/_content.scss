@@ -276,6 +276,7 @@ section {
     text-align: center;
     background-color: var.surface_color(9%);
     border-radius: 10px;
+    position: relative;
 
     @include mixin.breakpoint_down(small){
         > h3 { color: var.$primary-color;}
@@ -522,5 +523,16 @@ section {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+}
+
+#sos-icon-container {
+    position: relative;
+
+    .sos-icon {
+        width: 25px;
+        height: 25px;
+        position: relative;
+        margin: 0 2vw;
     }
 }

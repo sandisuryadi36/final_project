@@ -511,6 +511,7 @@ section {
   text-align: center;
   background-color: #292929;
   border-radius: 10px;
+  position: relative;
 }
 @media (max-width: 639px) {
   .card > h3, .card-cta > h3 {
@@ -762,6 +763,16 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#sos-icon-container {
+  position: relative;
+}
+#sos-icon-container .sos-icon {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  margin: 0 2vw;
 }
 
 footer {
