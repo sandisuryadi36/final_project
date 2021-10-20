@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 
 /* Track */
@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #32e0ff;
+  background: rgba(50, 224, 255, 0.7);
   border-radius: 2px;
 }
 
@@ -266,6 +266,17 @@ section {
   margin: 30px 0;
   padding-top: 20px;
   position: relative;
+}
+
+.ex-link::after {
+  content: "";
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: 5px;
+  background-image: url(../assets/images/ex-link.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .fg-patern {
@@ -500,17 +511,28 @@ section {
   background-color: #292929;
   border-radius: 10px;
 }
-
-.card-cta:hover {
-  cursor: pointer;
-}
-.card-cta:hover > h3, .card-cta:hover .notes {
-  color: #32e0ff;
+@media (max-width: 639px) {
+  .card > h3, .card-cta > h3 {
+    color: #32e0ff;
+  }
 }
 
+@media (min-width: 640px) {
+  .card-cta:hover, #angin:hover {
+    cursor: pointer;
+  }
+  .card-cta:hover > h3, .card-cta:hover .notes, #angin:hover > h3, #angin:hover .notes {
+    color: #32e0ff;
+  }
+}
 .notes {
   font-weight: 200;
   font-size: 0.8em;
+}
+@media (max-width: 639px) {
+  .notes {
+    color: #32e0ff;
+  }
 }
 
 .pTitle {
@@ -679,19 +701,11 @@ section {
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-flow: dense;
-  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .grid-item {
-  display: flex;
-  justify-content: center;
-}
-
-.frame {
-  margin: 0;
+  margin: 5px;
   width: fit-content;
   height: 250px;
   overflow: hidden;
@@ -699,7 +713,7 @@ section {
   transition: 200ms;
   cursor: pointer;
 }
-.frame img {
+.grid-item img {
   max-width: 250px;
   position: relative;
   top: 50%;
@@ -709,7 +723,7 @@ section {
   margin: 0;
   padding: 0;
 }
-.frame > span {
+.grid-item > span {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -719,10 +733,10 @@ section {
   opacity: 0.3;
   transition: opacity 200ms ease-in-out;
 }
-.frame:hover img {
+.grid-item:hover img {
   transform: translate(-50%, -50%) scale(1.1);
 }
-.frame:hover > span {
+.grid-item:hover > span {
   opacity: 0;
 }
 
@@ -733,7 +747,6 @@ section {
   height: 100%;
   top: 0;
   left: 0;
-  padding: 20px;
   background-color: rgba(49, 49, 49, 0.3);
   backdrop-filter: blur(5px);
   z-index: 5;
@@ -741,6 +754,9 @@ section {
 .preview img {
   position: fixed;
   width: auto;
+  height: auto;
+  max-width: 90%;
+  max-height: 90%;
   z-index: 5;
   top: 50%;
   left: 50%;

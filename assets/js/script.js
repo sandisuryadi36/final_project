@@ -72,61 +72,70 @@ var age = Math.floor((d.getTime() - dateBirth.getTime()) / (1000 * 3600 * 24 * 3
 
 $("#age").append(age + " years old")
 
-//get pictures array from directory
+
 $(function () {
+    
+//=======DO NOT DELETE==============
+//get pictures array from directory
+//just use this in local server to take the file list in folder, then copy to json file
+//     var baseUrl = "/assets/portfolio/"
+//     var pictures = []
 
-    var baseUrl = "/assets/portfolio/"
-    var pictures = []
 
+//     $.ajax({
+//         url: baseUrl,
+//         success: function (data) {
+//             pictures = []
+//             $(data).find("a").each(function () {
+//                 var href = $(this).attr('href')
+//                 if (href.match(/\.(jpe?g|JPE?G|png|PNG|gif|GIF)$/)) {
+//                     pictures.push(href)
+//                     // makeGrid(".grid-container", href)
+//                 }
+//             })
+//             console.log(pictures)
+//         }
+//     })
+//=======DO NOT DELETE==============
 
-    $.ajax({
-        url: baseUrl,
-        success: function (data) {
-            pictures = []
-            var i = 0
-            $(data).find("a").each(function () {
-                var href = $(this).attr('href')
-                if (href.match(/\.(jpe?g|JPE?G|png|PNG|gif|GIF)$/)) {
-                    pictures.push(href)
-                    makeGrid(".grid-container", href, i)
-                    i++
-                }
-            })
-        }
+    $.getJSON("../assets/portfolio/list.json", function (result) {
+        $.each(result, function (_, data) {
+            makeGrid(".grid-container", data)
+        })
     })
 
     //function to display to grid
-    function makeGrid(container, link, i) {
-        $(container).append("<div id='grid"+ i +"' clas='grid-item'></div>")
-        $("#grid" + i).append("<div class='frame'><img src='"+ link +"'><span class'mobile-hide'></span></div>")
+    function makeGrid(container, link) {
+        $(container).append("<div class='grid-item'><img src='" + link + "'><span class'mobile-hide'></span></div>")
     }
 });
 
-//image clicked
-var pWidth = 0
-
-$(document).on("click", ".frame", function () {
-    var imgURL = $(this).children("img").attr("src")
-
+//function to preview img
+function displayPreview(link) {
     $("body").append("<div class='preview'></div>")
-    $(".preview").append("<img src='" + imgURL + "'>")
+    $(".preview").append("<img src='" + link + "'>")
     $(".preview").fadeToggle(500)
-    $("body").toggleClass("noScroll")
-})
+}
 
 $(document).on("click", ".preview", function () {
     $(".preview").fadeToggle(500).queue(function () {
         $(".preview").remove()
         $(this).dequeue()
     })
-    $("body").toggleClass("noScroll")
 })
 
-// //resize window function
-// $(window).resize(function () {
-//     if ($(window).width() < pWidth + 100) {
-//         $(".preview").children("img").css("width", $(window).width() - 100)
-//     } else {
-//         $(".preview").children("img").css("width", "auto")
-//     }
-// })
+$(document).on("click", "#angin", function () {
+    var link = "./assets/images/Sertifikat-Angin-Photoschool.jpg"
+    displayPreview(link)
+})
+
+$(document).on("click", "#certivicate", function () {
+    var link = "./assets/images/Sertifikat-Kompetensi-LESKOFI-lv-3.jpg"
+    displayPreview(link)
+})
+
+//image clicked
+$(document).on("click", ".grid-item", function () {
+    var imgURL = $(this).children("img").attr("src")
+    displayPreview(imgURL)
+})

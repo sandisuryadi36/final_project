@@ -31,6 +31,19 @@ section {
     position: relative;
 }
 
+.ex-link {
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 0.8em;
+        height: 0.8em;
+        margin-left: 5px;
+        background-image: url(../assets/images/ex-link.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
 
 .fg-patern {
     pointer-events: none;
@@ -262,18 +275,27 @@ section {
     text-align: center;
     background-color: var.surface_color(9%);
     border-radius: 10px;
+
+    @include mixin.breakpoint_down(small){
+        > h3 { color: var.$primary-color;}
+    }
 }
 
-.card-cta:hover {
-    cursor: pointer;
-    >h3, .notes {
-        color: var.$primary-color;
+@include mixin.breakpoint_up(medium){
+    .card-cta:hover, #angin:hover {
+        cursor: pointer;
+        >h3, .notes {
+            color: var.$primary-color;
+        }
     }
 }
 
 .notes {
     font-weight: 200;
     font-size: 0.8em;
+    @include mixin.breakpoint_down(small){
+        color: var.$primary-color;
+    }
 }
 
 
@@ -433,19 +455,11 @@ section {
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-auto-flow: dense;
-    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .grid-item {
-    display: flex;
-    justify-content: center;
-}
-
-.frame {
-    margin: 0;
+    margin: 5px;
     width: fit-content;
     height: 250px;
     overflow: hidden;
@@ -493,7 +507,6 @@ section {
     height: 100%;
     top: 0;
     left: 0;
-    padding: 20px;
     background-color: rgba(var.surface_color(12%), 0.3);
     backdrop-filter: blur(5px);
     z-index: 5;
@@ -501,6 +514,9 @@ section {
     img {
         position: fixed;
         width: auto;
+        height: auto;
+        max-width: 90%;
+        max-height: 90%;
         z-index: 5;
         top: 50%;
         left: 50%;
