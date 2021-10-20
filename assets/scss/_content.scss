@@ -535,3 +535,57 @@ section {
         margin: 0 2vw;
     }
 }
+
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var.surface_color(12%);
+    padding: 20px;
+
+    > input, > label {
+        position: relative
+    }
+
+    textarea {
+        width: 100%;
+        max-width: 75%;
+        margin: 20px;
+    }
+
+    .input-box {
+        position: relative;
+        margin: 0 10vw;
+
+        input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: var.$onSur-color;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid var.$onSur-color;
+            outline: none;
+            background: transparent;
+
+            &:focus ~ label, &:valid ~ label {
+                top: -20px;
+                left: 0;
+                color: var.$primary-color;
+                font-size: 12px;
+            }
+        }
+
+        label {
+            position: absolute;
+            top:0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 16px;
+            pointer-events: none;
+            transition: .5s;
+        }
+    }
+}

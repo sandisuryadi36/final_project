@@ -90,6 +90,19 @@ h1, h2, h3, h4, h5, h6 {
   background: #32e0ff;
 }
 
+button {
+  padding: 5px 20px;
+  width: 10vw;
+  background-color: #383838;
+  border-radius: 30px;
+  margin: 5px;
+  color: #ffffff;
+}
+button:hover, button:focus {
+  background-color: #32e0ff;
+  color: #121212;
+}
+
 @keyframes fade-in {
   from {
     visibility: hidden;
@@ -773,6 +786,54 @@ section {
   height: 25px;
   position: relative;
   margin: 0 2vw;
+}
+
+form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #313131;
+  padding: 20px;
+}
+form > input, form > label {
+  position: relative;
+}
+form textarea {
+  width: 100%;
+  max-width: 75%;
+  margin: 20px;
+}
+form .input-box {
+  position: relative;
+  margin: 0 10vw;
+}
+form .input-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  outline: none;
+  background: transparent;
+}
+form .input-box input:focus ~ label, form .input-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #32e0ff;
+  font-size: 12px;
+}
+form .input-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
 }
 
 footer {

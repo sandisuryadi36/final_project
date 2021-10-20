@@ -105,3 +105,17 @@ h1, h2, h3, h4, h5, h6 {
     background: var.$primary-color; 
 }
 //-------scrollbar
+
+button {
+    padding: 5px 20px;
+    width: 10vw;
+    background-color: var.surface_color(15%);
+    border-radius: 30px;
+    margin: 5px;
+    color: var.$onSur-color;
+
+    &:hover, &:focus {
+        background-color: var.$primary-color;
+        color: var.$onPrime-color;
+    }
+}

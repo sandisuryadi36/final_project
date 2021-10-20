@@ -272,14 +272,22 @@
                     <a href="https://github.com/sandisuryadi36" target="_blank"><img class="sos-icon" src="./assets/images/github.png" alt=""></a>
                 </div>
                 <p>Email : sandisuryadi.mail@gmail.com</p>
+                <br>
+                <p>Or you can send message to me directly here</p>
                 <form action=”mailto:sandisuryadi.mail@gmail.com” method="POST" enctype=”multipart/form-data” data-netlify-recaptcha="true" name=”EmailForm” data-netlify="true">
-                    Name:<br>
-                    <input type=”text” size=”19″ name=”ContactName”>
-                    <br><br>
-                    Message:<br> <textarea name=”ContactCommentt” rows=”6″ cols=”20″></textarea>
-                    <br><br>
+                    <div class="input-box">
+                        <input type="text" required name="name">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" required name="email">
+                        <label for="email">Email</label>
+                    </div>
+                    <label for="message">Message</label>
+                    <textarea name="message" id="" cols="auto" rows="4"></textarea>
+                    
                     <div data-netlify-recaptcha="true"></div>
-                    <input type="submit" value="Submit" id="btsubmit"><br>
+                    <button type="submit" value="Submit">Submit<br>
                 </form>
             </div>
         </section>
