@@ -807,7 +807,8 @@ form textarea {
 }
 form .recaptcha {
   width: 100%;
-  max-width: 50%;
+  max-width: 50vw;
+  height: auto;
 }
 form .input-box {
   position: relative;
