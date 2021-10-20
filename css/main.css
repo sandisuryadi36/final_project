@@ -95,7 +95,6 @@ button {
   width: 15vw;
   background-color: #383838;
   border-radius: 30px;
-  margin: 20px;
   color: #ffffff;
 }
 @media (max-width: 639px) {

@@ -111,7 +111,6 @@ button {
     width: 15vw;
     background-color: var.surface_color(15%);
     border-radius: 30px;
-    margin: 20px;
     color: var.$onSur-color;
     @include mixin.breakpoint_down(small){
         width: 25vw;
