@@ -810,9 +810,6 @@ form textarea {
   max-width: 75%;
   margin: 20px 0;
 }
-form .recaptcha {
-  transform: scale(0.8);
-}
 form .input-box {
   position: relative;
   margin: 0 10vw;
