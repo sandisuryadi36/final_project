@@ -12,6 +12,9 @@ function captchaSize(width) {
 captchaSize($(window).width())
 $(window).resize(function(){
     captchaSize($(window).width())
+    var container = document.querySelector(".g-recaptcha");
+    var content = container.innerHTML;
+    container.innerHTML = content
 })
 //========================
 
