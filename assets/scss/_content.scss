@@ -461,15 +461,24 @@ section {
 
 .grid-item {
     margin: 5px;
-    width: fit-content;
+    width: 250px;
     height: 250px;
     overflow: hidden;
     position: relative;
     transition: 200ms;
     cursor: pointer;
+    background-color: var.surface_color(7%);
+    @include mixin.breakpoint_down(medium){
+        width: 150px;
+        height: 150px;
+    }
+    @include mixin.breakpoint_down(small){
+        width: 80px;
+        height: 80px;
+    }
     
     img {
-        max-width: 250px;
+        max-width: 100%;
         position: relative;
         top: 50%;
         left: 50%;
@@ -478,7 +487,7 @@ section {
         margin: 0;
         padding: 0;
     }
-    
+
     > span {
         width: 100%;
         height: 100%;
@@ -488,6 +497,9 @@ section {
         background-color: black;
         opacity: 0.3;
         transition: opacity 200ms ease-in-out;
+        @include mixin.breakpoint_down(small){
+            visibility: hidden;
+        }
     }
     
     &:hover {

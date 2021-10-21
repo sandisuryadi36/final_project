@@ -1,5 +1,20 @@
 $(".anchor").css("bottom", $(".nav").outerHeight() + 5)
 
+//select size of reCaptcha
+function captchaSize(width) {
+    if (width < 640) {
+        $(".g-recaptcha").attr("data-size","compact")
+    } else {
+        $(".g-recaptcha").attr("data-size","normal")
+    }
+}
+
+captchaSize($(window).width())
+$(window).resize(function(){
+    captchaSize($(window).width())
+})
+//========================
+
 //menu click behavior
 $(".menuBtn").on("click", function () {
     var target = $(this).attr("scroll-to")

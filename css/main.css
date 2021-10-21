@@ -71,7 +71,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
+  position: fixed;
+  top: 0;
+  right: 0;
 }
 
 /* Track */
@@ -82,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(50, 224, 255, 0.7);
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 /* Handle on hover */
@@ -725,15 +728,28 @@ section {
 
 .grid-item {
   margin: 5px;
-  width: fit-content;
+  width: 250px;
   height: 250px;
   overflow: hidden;
   position: relative;
   transition: 200ms;
   cursor: pointer;
+  background-color: #242424;
+}
+@media (max-width: 1023px) {
+  .grid-item {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media (max-width: 639px) {
+  .grid-item {
+    width: 80px;
+    height: 80px;
+  }
 }
 .grid-item img {
-  max-width: 250px;
+  max-width: 100%;
   position: relative;
   top: 50%;
   left: 50%;
@@ -751,6 +767,11 @@ section {
   background-color: black;
   opacity: 0.3;
   transition: opacity 200ms ease-in-out;
+}
+@media (max-width: 639px) {
+  .grid-item > span {
+    visibility: hidden;
+  }
 }
 .grid-item:hover img {
   transform: translate(-50%, -50%) scale(1.1);

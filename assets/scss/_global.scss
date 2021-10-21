@@ -86,7 +86,10 @@ h1, h2, h3, h4, h5, h6 {
 //scrollbar-----
 /* width */
 ::-webkit-scrollbar {
-    width: 4px;
+    width: 5px;
+    position: fixed;
+    top: 0;
+    right: 0;
 }
 
 /* Track */
@@ -97,7 +100,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: rgba(var.$primary-color, 0.7); 
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
 /* Handle on hover */
