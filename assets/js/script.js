@@ -1,21 +1,11 @@
 $(".anchor").css("bottom", $(".nav").outerHeight() + 5)
 
 //select size of reCaptcha
-function captchaSize(width) {
-    if (width < 640) {
-        $(".g-recaptcha").attr("data-size","compact")
-    } else {
-        $(".g-recaptcha").attr("data-size","normal")
-    }
+if ($(window).width() < 640) {
+    $(".g-recaptcha").attr("data-size","compact")
+} else {
+    $(".g-recaptcha").attr("data-size","normal")
 }
-
-captchaSize($(window).width())
-$(window).resize(function(){
-    captchaSize($(window).width())
-    var container = document.querySelector(".g-recaptcha");
-    var content = container.innerHTML;
-    container.innerHTML = content
-})
 //========================
 
 //menu click behavior
