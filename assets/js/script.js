@@ -1,4 +1,6 @@
 $(".anchor").css("bottom", $(".nav").outerHeight() + 5)
+var navh = $(".nav").outerHeight()
+$(".content").css("margin-top", navh)
 
 //select size of reCaptcha
 if ($(window).width() < 640) {
@@ -48,15 +50,13 @@ $(".overlay").click(function () {
 })
 
 //scrolling page triger
-$(window).scroll(navh = $(".nav").outerHeight(),function () {
+$(window).scroll(navh, function () {
     
     //script to handle sticky nav bar
     if ($(window).scrollTop() >= $(".nav").outerHeight()) {
         $(".nav").addClass("sticky-nav")
-        $(".content").css("margin-top", navh)
     } else {
         $(".nav").removeClass("sticky-nav")
-        $(".content").css("margin-top", 0)
     }
 
     //handle active menu effect
@@ -99,12 +99,11 @@ $("#age").append(age + " years old")
 
 
 $(function () {
-    
+
 //=======DO NOT DELETE==============
 //get pictures array from directory
 //just use this in local server to take the file list in folder, then copy to json file
 //     var baseUrl = "/assets/portfolio/"
-//     var pictures = []
 
 
 //     $.ajax({
@@ -123,11 +122,34 @@ $(function () {
 //     })
 //=======DO NOT DELETE==============
 
-    $.getJSON("../assets/portfolio/list.json", function (result) {
-        $.each(result, function (_, data) {
-            makeGrid(".grid-container", data)
-        })
+    var pictures = []
+    // $.getJSON("../assets/portfolio/list.json", function (result) {
+    //     $.each(result, function (_, data) {
+    //         pictures.push(data)
+    //         makeGrid(".grid-container", data)
+    //     })
+    //     console.log(pictures)
+    //     console.log(pictures.length)
+    // })
+
+    $.ajaxSetup({
+        async: false
+    });
+    var jsonData = (function () {
+        var result;
+        $.getJSON("../assets/portfolio/list.json", {}, function (data) {
+            result = data;
+        });
+        return result;
+    })();
+    console.log(jsonData);
+
+    $.each(jsonData, function (_, urlLink) {
+            makeGrid(".grid-container", urlLink)
     })
+    
+    // console.log(pictures)
+    // console.log(pictures.length)
 
     //function to display to grid
     function makeGrid(container, link) {

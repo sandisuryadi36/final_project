@@ -2,20 +2,26 @@
 @use 'animations';
 
 .header {
+    position: relative;
+    width: 100%;
     .nav {
-        position: relative;
+        position: fixed;
+        width: 100vw;
         top: 0;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         background-color: transparent;
         border-bottom: 1px solid var.surface_color(7%);
         backdrop-filter: blur(5px);
         min-height: 20px;
-        padding: 5px var.$side-padding;
+        padding: 5px 0;
         z-index: 2;
+        transition: top 400ms ease-in-out;
 
         .menu_link {
             position: relative;
             gap: 20px;
+            margin-right: var.$side-padding;
             p {
                 position: relative;
                 color: var.$onSur-color;
@@ -51,6 +57,7 @@
 
         .header-logo {
             height: var.$header-logo-height;
+            margin-left: var.$side-padding;
             > img {
                 max-height: 100%;
                 width: auto;
@@ -62,11 +69,15 @@
         border: 1px solid var.surface_color(7%);
         border-radius: 40px;
         padding: 5px 20px;
-        width: calc(100vw - 100px);
-        position: fixed;
+        width: calc(100vw - 70px);
         top: 5px;
-        left: 50%;
-        transform: translateX(-50%);
+
+        .menu_link {
+            margin-right: 0;
+        }
+        .header-logo {
+            margin-left: 0;
+        }
     }
     
     &_toggle {      //mobile toggle menu
