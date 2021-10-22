@@ -78,11 +78,17 @@
         .header-logo {
             margin-left: 0;
         }
+
+        .header_toggle {
+            margin-right: 0;
+        }
     }
     
     &_toggle {      //mobile toggle menu
         margin: auto 0;
         cursor: pointer;
+        margin-right: var.$side-padding;
+
         > span {
             display: block;
             background-color: var.$onSur-color;

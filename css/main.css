@@ -217,9 +217,13 @@ button:hover, button:focus {
 .header .sticky-nav .header-logo {
   margin-left: 0;
 }
+.header .sticky-nav .header_toggle {
+  margin-right: 0;
+}
 .header_toggle {
   margin: auto 0;
   cursor: pointer;
+  margin-right: 30px;
 }
 .header_toggle > span {
   display: block;

@@ -122,16 +122,6 @@ $(function () {
 //     })
 //=======DO NOT DELETE==============
 
-    var pictures = []
-    // $.getJSON("../assets/portfolio/list.json", function (result) {
-    //     $.each(result, function (_, data) {
-    //         pictures.push(data)
-    //         makeGrid(".grid-container", data)
-    //     })
-    //     console.log(pictures)
-    //     console.log(pictures.length)
-    // })
-
     $.ajaxSetup({
         async: false
     });
