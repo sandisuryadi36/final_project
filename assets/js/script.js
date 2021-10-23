@@ -136,16 +136,34 @@ $(function () {
         })
         return result;
     })();
-    
-    console.log(jsonData);
 
-    $.each(jsonData, function (_, urlLink) {
-            makeGrid(".grid-container", urlLink)
+    var imgCount = jsonData.length
+    var perLoad = 1     //max image grid load at once
+    var loaded = 0
+
+    loadGrid(loaded, perLoad)
+    
+    if (imgCount > loaded) {
+        $("<button id='load-btn'>Load more...</button>").insertBefore("#contact")
+    }
+
+    $("#load-btn").on("click", function () {
+        var i = imgCount - loaded
+        if (i > perLoad) {
+            loadGrid(loaded, loaded + perLoad)
+        } else {
+            loadGrid(loaded, loaded + i)
+            $("#load-btn").remove()
+        }
     })
     
-    // console.log(pictures)
-    // console.log(pictures.length)
-
+    function loadGrid(e, x) {
+        for (var i = e; i < x; i++){
+            makeGrid(".grid-container", jsonData[i])
+            loaded++
+        }
+    }
+    
     //function to display to grid
     function makeGrid(container, link) {
         $(container).append("<div class='grid-item'><img src='" + link + "'><span class'mobile-hide'></span></div>")

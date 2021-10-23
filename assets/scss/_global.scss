@@ -110,17 +110,19 @@ h1, h2, h3, h4, h5, h6 {
 //-------scrollbar
 
 button {
-    padding: 5px 20px;
-    width: 15vw;
-    background-color: var.surface_color(15%);
+    padding: 10px 20px;
+    margin: 5px;
+    width: 80%;
+    background-color: var.$primary-color;
     border-radius: 30px;
-    color: var.$onSur-color;
+    border: none;
+    color: var.$onPrime-color;
     @include mixin.breakpoint_down(small){
-        width: 25vw;
+        // width: 25vw;
     }
 
     &:hover, &:focus {
-        background-color: var.$primary-color;
-        color: var.$onPrime-color;
+        background-color: var.$secondary-color;
+        color: var.$onSec-color;
     }
 }
