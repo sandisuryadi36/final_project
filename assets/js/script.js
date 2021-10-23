@@ -138,7 +138,7 @@ $(function () {
     })();
 
     var imgCount = jsonData.length
-    var perLoad = 1     //max image grid load at once
+    var perLoad = 6     //max image grid load at once
     var loaded = 0
 
     loadGrid(loaded, perLoad)
