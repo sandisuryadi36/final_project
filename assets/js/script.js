@@ -125,13 +125,18 @@ $(function () {
     $.ajaxSetup({
         async: false
     });
+    
     var jsonData = (function () {
         var result;
-        $.getJSON("../assets/portfolio/list.json", {}, function (data) {
-            result = data;
-        });
+        $.ajax({
+            url: "../assets/portfolio/list.json",
+            success: function (data) {
+                result = data
+            }
+        })
         return result;
     })();
+    
     console.log(jsonData);
 
     $.each(jsonData, function (_, urlLink) {
