@@ -186,6 +186,8 @@ function closePreview() {
     })
 }
 
+
+
 $(document).on("click", ".preview", function () {
     closePreview()
 })
@@ -199,6 +201,17 @@ $(document).on("click", "#certivicate", function () {
     var link = "./assets/images/Sertifikat-Kompetensi-LESKOFI-lv-3.webp"
     displayPreview(link)
 })
+
+$(document).on("focus", "#leave-message", function () {
+    $("#ms-form").fadeToggle(500)
+    // $("body").toggleClass("noScroll")
+})
+
+$(document).on("click", "#close-form", function () {
+    $("#ms-form").fadeToggle(500)
+    // $("body").toggleClass("noScroll")
+})
+
 
 //image clicked
 $(document).on("click", ".grid-item", function () {

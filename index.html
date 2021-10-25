@@ -16,7 +16,7 @@
 
             <!-- site logo -->
             <a href="./" class="header-logo">
-                <img src="./assets/images/logo-white.png" alt="Suryadi Photo">
+                <img src="./assets/images/logo-white.webp" alt="Suryadi Photo">
             </a>
 
             <!-- hamburg button -->
@@ -275,21 +275,28 @@
                 <p>Email : sandisuryadi.mail@gmail.com</p>
                 <br>
                 <p>Or you can send message to me directly here</p>
-                <form method="POST" data-netlify-recaptcha="true" name=”Email” data-netlify="true">
-                    <div class="input-box">
-                        <input type="text" required name="name">
-                        <label for="name">Name</label>
-                    </div>
-                    <div class="input-box">
-                        <input type="text" required name="email">
-                        <label for="email">Email</label>
-                    </div>
-                    <label for="message">Message</label>
-                    <textarea name="message" id="" cols="auto" rows="4"></textarea>
-                    
-                    <div class="g-recaptcha" data-sitekey="6LfTieIcAAAAAFVPxs-kGOqNUsPAnhQEgexa66hX" data-size="compact" data-theme="dark"></div> <br />
-                    <button type="submit" value="Submit">Submit<br>
-                </form>
+                <textarea name="" id="leave-message" cols="auto" rows="2" placeholder="Leave your message here..." ></textarea>
+                <div id="ms-form">
+                    <form method="POST" data-netlify-recaptcha="true" name=”Email” data-netlify="true">
+                        <div id="close-form">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" required name="name">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" required name="email">
+                            <label for="email">Email</label>
+                        </div>
+                        <label for="message">Message</label>
+                        <textarea name="message" id="" cols="auto" rows="8"></textarea>
+                        
+                        <div class="g-recaptcha" data-sitekey="6LfTieIcAAAAAFVPxs-kGOqNUsPAnhQEgexa66hX" data-size="compact" data-theme="dark"></div> <br />
+                        <button type="submit" value="Submit">Submit<br>
+                    </form>
+                </div>
             </div>
         </section>
     </div>

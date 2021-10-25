@@ -832,29 +832,52 @@ section {
   margin: 0 2vw;
 }
 
-form {
+textarea {
+  width: 50%;
+  font-size: 16px;
+}
+
+#ms-form {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(49, 49, 49, 0.3);
+  backdrop-filter: blur(5px);
+  z-index: 5;
+}
+#ms-form form {
   position: relative;
+  width: 80vw;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  background-color: #313131;
-  padding: 20px 0;
+  background-color: #404040;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-form > input, form > label {
-  position: relative;
-}
-form textarea {
+#ms-form form textarea {
   width: 100%;
   max-width: 75%;
   margin: 20px 0;
 }
-form .input-box {
+#ms-form form .input-box {
   position: relative;
   margin: 0 10vw;
+  width: 50vw;
 }
-form .input-box input {
+#ms-form form .input-box > input, #ms-form form .input-box > label {
+  position: relative;
+}
+#ms-form form .input-box input {
   width: 100%;
+  top: 0;
+  left: 0;
   padding: 10px 0;
   font-size: 16px;
   color: #ffffff;
@@ -864,20 +887,40 @@ form .input-box input {
   outline: none;
   background: transparent;
 }
-form .input-box input:focus ~ label, form .input-box input:valid ~ label {
+#ms-form form .input-box input:focus ~ label, #ms-form form .input-box input:valid ~ label {
   top: -20px;
   left: 0;
   color: #32e0ff;
   font-size: 12px;
 }
-form .input-box label {
+#ms-form form .input-box label {
   position: absolute;
   top: 0;
   left: 0;
   padding: 10px 0;
   font-size: 16px;
   pointer-events: none;
-  transition: 0.5s;
+  transition: all 0.5s ease-in-out;
+}
+#ms-form form #close-form {
+  padding: 20px 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#ms-form form #close-form > span {
+  display: block;
+  width: 20px;
+  height: 3px;
+  background-color: #ffffff;
+  transform-origin: 40% 50%;
+  cursor: pointer;
+}
+#ms-form form #close-form > span:nth-child(1) {
+  transform: rotate(45deg);
+}
+#ms-form form #close-form > span:nth-child(2) {
+  transform: rotate(-45deg);
 }
 
 footer {
