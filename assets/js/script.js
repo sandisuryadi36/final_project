@@ -99,81 +99,83 @@ $("#age").append(age + " years old")
 
 
 $(function () {
+// =======DO NOT DELETE==============
+// get pictures array from directory
+// just use this in local server to take the file list in folder, then copy to json file
+    // var baseUrl = "/assets/portfolio/"
+    // var pictures = []
 
-//=======DO NOT DELETE==============
-//get pictures array from directory
-//just use this in local server to take the file list in folder, then copy to json file
-//     var baseUrl = "/assets/portfolio/"
 
+    // $.ajax({
+    //     url: baseUrl,
+    //     success: function (data) {
+    //         pictures = []
+    //         $(data).find("a").each(function () {
+    //             var href = $(this).attr('href')
+    //             if (href.match(/\.(jpe?g|JPE?G|png|PNG|gif|GIF|webp|WEBP)$/)) {
+    //                 pictures.push(href)
+    //             }
+    //         })
+    //         console.log(pictures)
+    //     }
+    // })
+// =======DO NOT DELETE==============
+});
 
-//     $.ajax({
-//         url: baseUrl,
-//         success: function (data) {
-//             pictures = []
-//             $(data).find("a").each(function () {
-//                 var href = $(this).attr('href')
-//                 if (href.match(/\.(jpe?g|JPE?G|png|PNG|gif|GIF)$/)) {
-//                     pictures.push(href)
-//                     // makeGrid(".grid-container", href)
-//                 }
-//             })
-//             console.log(pictures)
-//         }
-//     })
-//=======DO NOT DELETE==============
+//Loading iamge handler ===============
+$.ajaxSetup({
+    async: false
+});
 
-    $.ajaxSetup({
-        async: false
-    });
-    
-    var jsonData = (function () {
-        var result;
-        $.ajax({
-            url: "../assets/portfolio/list.json",
-            success: function (data) {
-                result = data
-            }
-        })
-        return result;
-    })();
-
-    var imgCount = jsonData.length
-    var perLoad = 6     //max image grid load at once
-    var loaded = 0
-
-    loadGrid(loaded, perLoad)
-    
-    if (imgCount > loaded) {
-        $("<button id='load-btn'>Load more...</button>").insertBefore("#contact")
-    }
-
-    $("#load-btn").on("click", function () {
-        var i = imgCount - loaded
-        if (i > perLoad) {
-            loadGrid(loaded, loaded + perLoad)
-        } else {
-            loadGrid(loaded, loaded + i)
-            $("#load-btn").remove()
+var jsonData = (function () {
+    var result;
+    $.ajax({
+        url: "../assets/portfolio/list.json",
+        success: function (data) {
+            result = data
         }
     })
-    
-    function loadGrid(e, x) {
-        for (var i = e; i < x; i++){
-            makeGrid(".grid-container", jsonData[i])
-            loaded++
-        }
+    return result;
+})();
+
+var imgCount = jsonData.length
+var perLoad = 6     //max image grid load at once
+var loaded = 0
+
+loadGrid(loaded, perLoad)
+
+if (imgCount > loaded) {
+    $("<button id='load-btn'>Load more...</button>").insertBefore("#contact")
+}
+
+$("#load-btn").on("click", function () {
+    var i = imgCount - loaded
+    if (i > perLoad) {
+        loadGrid(loaded, loaded + perLoad)
+    } else {
+        loadGrid(loaded, loaded + i)
+        $("#load-btn").remove()
     }
-    
-    //function to display to grid
-    function makeGrid(container, link) {
-        $(container).append("<div class='grid-item'><img src='" + link + "'><span class'mobile-hide'></span></div>")
+})
+
+function loadGrid(e, x) {
+    for (var i = e; i < x; i++){
+        makeGrid(".grid-container", jsonData[i])
+        loaded++
     }
-});
+}
+
+//function to display to grid
+function makeGrid(container, link) {
+    $(container).append("<div class='grid-item'><div class='grid-img' style='background-image: url("+ link +");' img-url='"+ link +"')></div><span clas='mobile-hide'></span></div>")
+}
+
+//========load image handler
 
 //function to preview img
 function displayPreview(link) {
     $("body").append("<div class='preview'></div>")
-    $(".preview").append("<img src='" + link + "'>")
+    $(".preview").append("<div class='preview-img' style='background-image: url("+ link +");'></div>")
     $(".preview").fadeToggle(500)
 }
 
@@ -200,6 +202,6 @@ $(document).on("click", "#certivicate", function () {
 
 //image clicked
 $(document).on("click", ".grid-item", function () {
-    var imgURL = $(this).children("img").attr("src")
+    var imgURL = $(this).children(".grid-img").attr("img-url")
     displayPreview(imgURL)
 })

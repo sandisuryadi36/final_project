@@ -747,7 +747,6 @@ section {
   position: relative;
   transition: 200ms;
   cursor: pointer;
-  background-color: #242424;
 }
 @media (max-width: 1023px) {
   .grid-item {
@@ -761,9 +760,13 @@ section {
     height: 80px;
   }
 }
-.grid-item img {
-  max-width: 100%;
+.grid-item .grid-img {
   position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -786,7 +789,7 @@ section {
     visibility: hidden;
   }
 }
-.grid-item:hover img {
+.grid-item:hover .grid-img {
   transform: translate(-50%, -50%) scale(1.1);
 }
 .grid-item:hover > span {
@@ -804,10 +807,13 @@ section {
   backdrop-filter: blur(5px);
   z-index: 5;
 }
-.preview img {
+.preview .preview-img {
   position: fixed;
-  width: auto;
-  height: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: 100%;
   max-width: 90%;
   max-height: 90%;
   z-index: 5;
