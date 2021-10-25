@@ -191,12 +191,12 @@ $(document).on("click", ".preview", function () {
 })
 
 $(document).on("click", "#angin", function () {
-    var link = "./assets/images/Sertifikat-Angin-Photoschool.jpg"
+    var link = "./assets/images/Sertifikat-Angin-Photoschool.webp"
     displayPreview(link)
 })
 
 $(document).on("click", "#certivicate", function () {
-    var link = "./assets/images/Sertifikat-Kompetensi-LESKOFI-lv-3.jpg"
+    var link = "./assets/images/Sertifikat-Kompetensi-LESKOFI-lv-3.webp"
     displayPreview(link)
 })
 
