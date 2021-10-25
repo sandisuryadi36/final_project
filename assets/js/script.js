@@ -213,9 +213,19 @@ $(document).on("click", "#close-form", function () {
     // $("body").toggleClass("noScroll")
 })
 
-
 //image clicked
 $(document).on("click", ".grid-item", function () {
     var imgURL = $(this).children(".grid-img").attr("src")
     displayPreview(imgURL)
+})
+
+document.addEventListener("backbutton", function () {
+    //close preview if active
+    if ($(".preview").length == 1) {
+        closePreview()
+    }
+
+    if ($("#ms-form").attr("display") != "none") {
+        $("#ms-form").fadeToggle(500)
+    }
 })
