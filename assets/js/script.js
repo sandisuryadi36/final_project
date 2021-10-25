@@ -34,7 +34,7 @@ $("#btnHamburger").click(function () {
         $(".overlay").css("top", $(window).scrollTop() + 5)
         $(".overlay").css("height", $(window).height() - $(".nav").outerHeight() - 5)
     } else {
-        $(".overlay").css("top", $(".nav").outerHeight())
+        $(".overlay").css("top", $(window).scrollTop())
         $(".overlay").css("height", $(window).height() - $(window).scrollTop() - $(".nav").outerHeight())
     }
 
@@ -167,7 +167,7 @@ function loadGrid(e, x) {
 
 //function to display to grid
 function makeGrid(container, link) {
-    $(container).append("<div class='grid-item'><div class='grid-img' style='background-image: url("+ link +");' img-url='"+ link +"')></div><span clas='mobile-hide'></span></div>")
+    $(container).append("<div class='grid-item'><img class='grid-img' src='"+ link +"' loading='lazy'></img><span clas='mobile-hide'></span></div>")
 }
 
 //========load image handler
@@ -204,6 +204,7 @@ $(document).on("click", "#certivicate", function () {
 
 $(document).on("focus", "#leave-message", function () {
     $("#ms-form").fadeToggle(500)
+    $("#form-name").focus()
     // $("body").toggleClass("noScroll")
 })
 
@@ -215,6 +216,6 @@ $(document).on("click", "#close-form", function () {
 
 //image clicked
 $(document).on("click", ".grid-item", function () {
-    var imgURL = $(this).children(".grid-img").attr("img-url")
+    var imgURL = $(this).children(".grid-img").attr("src")
     displayPreview(imgURL)
 })
