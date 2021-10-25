@@ -167,7 +167,7 @@ function loadGrid(e, x) {
 
 //function to display to grid
 function makeGrid(container, link) {
-    $(container).append("<div class='grid-item'><img class='grid-img' src='"+ link +"' loading='lazy'></img><span clas='mobile-hide'></span></div>")
+    $(container).append("<div class='grid-item'><img class='grid-img' src='"+ link +"' loading='lazy'><span clas='mobile-hide'></span></div>")
 }
 
 //========load image handler
@@ -205,27 +205,16 @@ $(document).on("click", "#certivicate", function () {
 $(document).on("focus", "#leave-message", function () {
     $("#ms-form").fadeToggle(500)
     $("#form-name").focus()
-    // $("body").toggleClass("noScroll")
+    $("body").toggleClass("noScroll")
 })
 
 $(document).on("click", "#close-form", function () {
     $("#ms-form").fadeToggle(500)
-    // $("body").toggleClass("noScroll")
+    $("body").toggleClass("noScroll")
 })
 
 //image clicked
 $(document).on("click", ".grid-item", function () {
     var imgURL = $(this).children(".grid-img").attr("src")
     displayPreview(imgURL)
-})
-
-document.addEventListener("backbutton", function () {
-    //close preview if active
-    if ($(".preview").length == 1) {
-        closePreview()
-    }
-
-    if ($("#ms-form").attr("display") != "none") {
-        $("#ms-form").fadeToggle(500)
-    }
 })
