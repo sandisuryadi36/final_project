@@ -79,11 +79,6 @@ $(window).scroll(navh, function () {
         $(".menu_link > *").removeClass("active")
         $("#mHome").addClass("active")
     }
-
-    //close preview if active
-    if ($(".preview").length == 1) {
-        closePreview()
-    }
 })
 
 //handle my age
@@ -160,37 +155,80 @@ $("#load-btn").on("click", function () {
 
 function loadGrid(e, x) {
     for (var i = e; i < x; i++){
-        makeGrid(".grid-container", jsonData[i])
+        makeGrid(".grid-container", jsonData[i], i)
         loaded++
     }
 }
 
 //function to display to grid
-function makeGrid(container, link) {
-    $(container).append("<div class='grid-item'><img class='grid-img' src='"+ link +"' loading='lazy'><span clas='mobile-hide'></span></div>")
+function makeGrid(container, link, i) {
+    $(container).append("<div class='grid-item'><img class='grid-img' src='"+ link +"' loading='lazy' index='"+ i +"'><span clas='mobile-hide'></span></div>")
 }
 
 //========load image handler
 
 //function to preview img
-function displayPreview(link) {
+function displayPreview(data, i) {
     $("body").append("<div class='preview'></div>")
-    $(".preview").append("<div class='preview-img' style='background-image: url("+ link +");'></div>")
+    if (i != null) {
+        $(".preview").append("<div class='preview-img' style='background-image: url("+ data[i] +");' index='"+ i +"'></div>")
+    } else {
+        $(".preview").append("<div class='preview-img' style='background-image: url("+ data +");'></div>")
+    }
+    
+    $(".preview").append("<div class='navigation flex flex-row flex-jc-sb'></div>")
+    $(".navigation").append("<div class='nav-left flex flex-column flex-jc-c flex-ai-c'><span></span><span></span></div>")
+    $(".navigation").append("<div class='nav-right flex flex-column flex-jc-c flex-ai-c'><span></span><span></span></div>")
+    
+    $(".preview").append("<div id='close-preview'><span></span><span></span></div>")
+
     $(".preview").fadeToggle(500)
+    $("html").toggleClass("noScroll")
 }
 
 function closePreview() {
     $(".preview").fadeToggle(500).queue(function () {
         $(".preview").remove()
+        $("html").toggleClass("noScroll")
         $(this).dequeue()
     })
 }
 
+//preview navigation ================
+$(document).on("swipeleft", ".preview", function () { nextPrev() })
+$(document).on("swiperight", ".preview", function () { backPrev() })
 
+$(document).on("click", ".nav-left", function(){ backPrev() })
+$(document).on("click", ".nav-right", function(){ nextPrev() })
 
-$(document).on("click", ".preview", function () {
+$(document).keydown(function (e) {
+    if (e.keyCode == 37) {
+        backPrev()
+    } else if (e.keyCode == 39) {
+        nextPrev()
+    }
+});
+
+$(document).on("click", "#close-preview", function () {
     closePreview()
 })
+
+function nextPrev(){
+    var i = parseInt($(".preview-img").attr("index"))
+    if (i < loaded - 1) {
+        $(".preview-img").attr("style", "background-image: url(" + jsonData[i + 1] + ")")
+        $(".preview-img").attr("index", i + 1)
+    }
+}
+
+function backPrev() {
+    var i = parseInt($(".preview-img").attr("index"))
+    if (i > 0) {
+        $(".preview-img").attr("style", "background-image: url(" + jsonData[i - 1] + ")")
+        $(".preview-img").attr("index", i - 1)
+    }
+}
+//============= preview navigation end
 
 $(document).on("click", "#angin", function () {
     var link = "./assets/images/Sertifikat-Angin-Photoschool.webp"
@@ -215,6 +253,6 @@ $(document).on("click", "#close-form", function () {
 
 //image clicked
 $(document).on("click", ".grid-item", function () {
-    var imgURL = $(this).children(".grid-img").attr("src")
-    displayPreview(imgURL)
+    var imgIndex = $(this).children(".grid-img").attr("index")
+    displayPreview(jsonData, imgIndex)
 })

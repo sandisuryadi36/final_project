@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
 html {
   scroll-behavior: smooth;
+  overflow-y: overlay;
+}
+
+.ui-loader {
+  display: none;
 }
 
 body {
@@ -72,9 +77,6 @@ h1, h2, h3, h4, h5, h6 {
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
-  position: fixed;
-  top: 0;
-  right: 0;
 }
 
 /* Track */
@@ -813,7 +815,7 @@ section {
   width: 100%;
   height: 100%;
   max-width: 90%;
-  max-height: 90%;
+  max-height: 80%;
   z-index: 5;
   top: 50%;
   left: 50%;
@@ -902,24 +904,79 @@ textarea {
   pointer-events: none;
   transition: all 0.5s ease-in-out;
 }
-#ms-form form #close-form {
-  padding: 20px 10px;
+
+#close-form, #close-preview {
   position: absolute;
-  top: 0;
-  right: 0;
+  padding: 20px 10px;
+  background-color: transparent;
+  z-index: 6;
+  cursor: pointer;
 }
-#ms-form form #close-form > span {
+#close-form > span, #close-preview > span {
   display: block;
   width: 20px;
   height: 3px;
+  border-radius: 10px;
   background-color: #ffffff;
   transform-origin: 40% 50%;
-  cursor: pointer;
 }
-#ms-form form #close-form > span:nth-child(1) {
+#close-form > span:nth-child(1), #close-preview > span:nth-child(1) {
   transform: rotate(45deg);
 }
-#ms-form form #close-form > span:nth-child(2) {
+#close-form > span:nth-child(2), #close-preview > span:nth-child(2) {
+  transform: rotate(-45deg);
+}
+
+#close-form {
+  top: 10px;
+  right: 10px;
+}
+
+#close-preview {
+  top: 3%;
+  right: 2%;
+  transform: scale(1.5);
+}
+
+.navigation {
+  position: fixed;
+  width: 40%;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 7;
+}
+.navigation .nav-left, .navigation .nav-right {
+  position: relative;
+  background-color: rgba(64, 64, 64, 0.7);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.navigation .nav-left > span, .navigation .nav-right > span {
+  display: block;
+  width: 20px;
+  height: 3px;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+.navigation .nav-left > span {
+  transform-origin: -3% 50%;
+}
+.navigation .nav-left > span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.navigation .nav-left > span:nth-child(2) {
+  transform: rotate(-45deg);
+}
+.navigation .nav-right > span {
+  transform-origin: 83% 50%;
+}
+.navigation .nav-right > span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.navigation .nav-right > span:nth-child(2) {
   transform: rotate(-45deg);
 }
 
