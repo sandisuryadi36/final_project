@@ -162,7 +162,7 @@ function loadGrid(e, x) {
 
 //function to display to grid
 function makeGrid(container, link, i) {
-    $(container).append("<div class='grid-item'><img class='grid-img' src='"+ link +"' loading='lazy' index='"+ i +"'><span clas='mobile-hide'></span></div>")
+    $(container).append("<div class='grid-item'><img class='grid-img' src='" + link + "' loading='lazy' index='" + i +"' oncontextmenu='return false;'><span clas='mobile-hide'></span></div>")
 }
 
 //========load image handler
