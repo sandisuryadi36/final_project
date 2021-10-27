@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
 html {
   scroll-behavior: smooth;
-  overflow-y: overlay;
 }
 
 body {
@@ -9,6 +8,7 @@ body {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+  overflow-y: overlay;
   background-color: #121212;
   color: #ffffff;
   font-family: "Manrope", sans-serif;
