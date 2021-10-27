@@ -133,9 +133,9 @@ var jsonData = (function () {
     return result;
 })();
 
-var imgCount = jsonData.length
+var imgCount = jsonData.length  //count of all img
 var perLoad = 6     //max image grid load at once
-var loaded = 0
+var loaded = 0      //count loaded img
 
 loadGrid(loaded, perLoad)
 
@@ -170,15 +170,16 @@ function makeGrid(container, link, i) {
 //function to preview img
 function displayPreview(data, i) {
     $("body").append("<div class='preview'></div>")
-    if (i != null) {
-        $(".preview").append("<div class='preview-img' style='background-image: url("+ data[i] +");' index='"+ i +"'></div>")
-    } else {
-        $(".preview").append("<div class='preview-img' style='background-image: url("+ data +");'></div>")
+    $(".preview").append("<div class='backlayer'></div>")
+    if (i != null) {    //with i parameter
+        $(".preview").append("<img class='preview-img' src='" + data[i] + "' index='" + i + "' oncontextmenu='return false;'>")
+        
+        $(".preview").append("<div class='navigation flex flex-row flex-jc-sb'></div>")
+        $(".navigation").append("<div class='nav-left flex flex-column flex-jc-c flex-ai-c'><span></span><span></span></div>")
+        $(".navigation").append("<div class='nav-right flex flex-column flex-jc-c flex-ai-c'><span></span><span></span></div>")
+    } else {    //without i parameter
+        $(".preview").append("<img class='preview-img' src='" + data +"' oncontextmenu='return false;'>")
     }
-    
-    $(".preview").append("<div class='navigation flex flex-row flex-jc-sb'></div>")
-    $(".navigation").append("<div class='nav-left flex flex-column flex-jc-c flex-ai-c'><span></span><span></span></div>")
-    $(".navigation").append("<div class='nav-right flex flex-column flex-jc-c flex-ai-c'><span></span><span></span></div>")
     
     $(".preview").append("<div id='close-preview'><span></span><span></span></div>")
 
@@ -213,18 +214,32 @@ $(document).on("click", "#close-preview", function () {
     closePreview()
 })
 
+$(document).on("click", ".backlayer", function () {
+    closePreview()
+})
+
 function nextPrev(){
     var i = parseInt($(".preview-img").attr("index"))
     if (i < loaded - 1) {
-        $(".preview-img").attr("style", "background-image: url(" + jsonData[i + 1] + ")")
+        $(".preview-img").attr("src", jsonData[i + 1])
         $(".preview-img").attr("index", i + 1)
+    } else if ((i == loaded - 1) && (loaded != jsonData.length)) {
+        if (confirm("Do you want to load more photos?")) {
+            var i = imgCount - loaded
+            if (i > perLoad) {
+                loadGrid(loaded, loaded + perLoad)
+            } else {
+                loadGrid(loaded, loaded + i)
+                $("#load-btn").remove()
+            }
+        }
     }
 }
 
 function backPrev() {
     var i = parseInt($(".preview-img").attr("index"))
     if (i > 0) {
-        $(".preview-img").attr("style", "background-image: url(" + jsonData[i - 1] + ")")
+        $(".preview-img").attr("src", jsonData[i - 1])
         $(".preview-img").attr("index", i - 1)
     }
 }

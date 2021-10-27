@@ -4,10 +4,6 @@ html {
   overflow-y: overlay;
 }
 
-.ui-loader {
-  display: none;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -807,15 +803,22 @@ section {
   backdrop-filter: blur(5px);
   z-index: 5;
 }
-.preview .preview-img {
-  position: fixed;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+.preview .backlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+}
+.preview .preview-img {
+  position: fixed;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   max-width: 90%;
   max-height: 80%;
+  user-select: none;
+  -webkit-user-drag: none;
   z-index: 5;
   top: 50%;
   left: 50%;
