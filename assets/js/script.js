@@ -225,14 +225,17 @@ function nextPrev(){
         $(".preview-img").attr("index", i + 1)
     } else if ((i == loaded - 1) && (loaded != jsonData.length)) {
         if (confirm("Do you want to load more photos?")) {
-            var i = imgCount - loaded
-            if (i > perLoad) {
+            var x = imgCount - loaded
+            if (x > perLoad) {
                 loadGrid(loaded, loaded + perLoad)
             } else {
-                loadGrid(loaded, loaded + i)
+                loadGrid(loaded, loaded + x)
                 $("#load-btn").remove()
             }
         }
+        
+        $(".preview-img").attr("src", jsonData[i + 1])
+        $(".preview-img").attr("index", i + 1)
     }
 }
 
