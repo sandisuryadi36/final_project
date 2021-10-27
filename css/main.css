@@ -105,34 +105,6 @@ button:hover, button:focus {
   color: #121212;
 }
 
-@keyframes fade-in {
-  from {
-    visibility: hidden;
-    opacity: 0;
-  }
-  to {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-@keyframes fade-out {
-  from {
-    visibility: visible;
-    opacity: 1;
-  }
-  to {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
-.fade-in {
-  animation: fade-in 500ms ease-in-out 1 forwards;
-}
-
-.fade-out {
-  animation: fade-out 500ms ease-in-out 1 forwards;
-}
-
 @keyframes swing {
   0% {
     transform: rotate(5deg);
@@ -141,6 +113,30 @@ button:hover, button:focus {
     transform: rotate(-5deg);
   }
 }
+@keyframes swipeRight {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-10%, -50%) scale(0.8);
+  }
+}
+@keyframes swipeLeft {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-90%, -50%) scale(0.8);
+  }
+}
+.swipe-right {
+  animation: swipeRight 300ms ease-in-out 1 forwards;
+}
+
+.swipe-left {
+  animation: swipeLeft 300ms ease-in-out 1 forwards;
+}
+
 .header {
   position: relative;
   width: 100%;

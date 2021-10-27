@@ -221,8 +221,7 @@ $(document).on("click", ".backlayer", function () {
 function nextPrev(){
     var i = parseInt($(".preview-img").attr("index"))
     if (i < loaded - 1) {
-        $(".preview-img").attr("src", jsonData[i + 1])
-        $(".preview-img").attr("index", i + 1)
+        changeIMG("next", i)
     } else if ((i == loaded - 1) && (loaded != jsonData.length)) {
         if (confirm("Do you want to load more photos?")) {
             var x = imgCount - loaded
@@ -232,20 +231,40 @@ function nextPrev(){
                 loadGrid(loaded, loaded + x)
                 $("#load-btn").remove()
             }
+            changeIMG("next", i)
         }
-        
-        $(".preview-img").attr("src", jsonData[i + 1])
-        $(".preview-img").attr("index", i + 1)
     }
 }
 
 function backPrev() {
     var i = parseInt($(".preview-img").attr("index"))
-    if (i > 0) {
-        $(".preview-img").attr("src", jsonData[i - 1])
-        $(".preview-img").attr("index", i - 1)
+    changeIMG("back", i)
+}
+
+function changeIMG(x, i) {
+    if (x == "next") {
+        $(".preview-img").toggleClass("swipe-left")
+        $(".preview-img").fadeToggle(300).queue(function () {
+            $(".preview-img").toggleClass("swipe-left")
+            $(".preview-img").attr("src", jsonData[i + 1])
+            $(".preview-img").fadeToggle(300)
+            $(".preview-img").attr("index", i + 1)
+            $(this).dequeue()
+        })
+    } else if (x == "back") {
+        if (i > 0) {
+            $(".preview-img").toggleClass("swipe-right")
+            $(".preview-img").fadeToggle(300).queue(function () {
+                $(".preview-img").toggleClass("swipe-right")
+                $(".preview-img").attr("src", jsonData[i - 1])
+                $(".preview-img").fadeToggle(300)
+                $(".preview-img").attr("index", i - 1)
+                $(this).dequeue()
+            })
+        }
     }
 }
+
 //============= preview navigation end
 
 $(document).on("click", "#angin", function () {
