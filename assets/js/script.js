@@ -11,7 +11,7 @@ if ($(window).width() < 640) {
 //========================
 
 //menu click behavior
-$(".menuBtn").on("tap", function () {
+$(".menuBtn").on("click", function () {
     var target = $(this).attr("scroll-to")
     if (target == "#") {
         document.querySelector("html").scrollIntoView({ behavior: "smooth", block : "start" })
@@ -27,7 +27,7 @@ function toggleMenu() {
     $("body").toggleClass("noScroll")
 }
 
-$(document).on("tap", "#btnHamburger", function () {
+$(document).on("click", "#btnHamburger", function () {
     
     //set top position and height
     if ($(window).scrollTop() >= $(".nav").outerHeight()) {       
@@ -43,7 +43,7 @@ $(document).on("tap", "#btnHamburger", function () {
 })
 
 //click empty space to toggle menu
-$(document).on("tap", ".overlay", function () {
+$(document).on("click", ".overlay", function () {
     if ($(".header").hasClass("open")) {
         toggleMenu()
     }
@@ -143,7 +143,7 @@ if (imgCount > loaded) {
     $("<button id='load-btn'>Load more...</button>").insertBefore("#contact")
 }
 
-$("#load-btn").on("tap", function () {
+$("#load-btn").on("click", function () {
     var i = imgCount - loaded
     if (i > perLoad) {
         loadGrid(loaded, loaded + perLoad)
@@ -199,8 +199,8 @@ function closePreview() {
 $(document).on("swipeleft", ".preview", function () { nextPrev() })
 $(document).on("swiperight", ".preview", function () { backPrev() })
 
-$(document).on("tap", ".nav-left", function(){ backPrev() })
-$(document).on("tap", ".nav-right", function(){ nextPrev() })
+$(document).on("click", ".nav-left", function(){ backPrev() })
+$(document).on("click", ".nav-right", function(){ nextPrev() })
 
 $(document).keydown(function (e) {
     if (e.keyCode == 37) {
@@ -210,11 +210,11 @@ $(document).keydown(function (e) {
     }
 });
 
-$(document).on("tap", "#close-preview", function () {
+$(document).on("click", "#close-preview", function () {
     closePreview()
 })
 
-$(document).on("tap", ".backlayer", function () {
+$(document).on("click", ".backlayer", function () {
     closePreview()
 })
 
@@ -248,12 +248,12 @@ function backPrev() {
 }
 //============= preview navigation end
 
-$(document).on("tap", "#angin", function () {
+$(document).on("click", "#angin", function () {
     var link = "./assets/images/Sertifikat-Angin-Photoschool.webp"
     displayPreview(link)
 })
 
-$(document).on("tap", "#certivicate", function () {
+$(document).on("click", "#certivicate", function () {
     var link = "./assets/images/Sertifikat-Kompetensi-LESKOFI-lv-3.webp"
     displayPreview(link)
 })
@@ -264,13 +264,13 @@ $(document).on("focus", "#leave-message", function () {
     $("body").toggleClass("noScroll")
 })
 
-$(document).on("tap", "#close-form", function () {
+$(document).on("click", "#close-form", function () {
     $("#ms-form").fadeToggle(500)
     $("body").toggleClass("noScroll")
 })
 
 //image clicked
-$(document).on("tap", ".grid-item", function () {
+$(document).on("click", ".grid-item", function () {
     var imgIndex = $(this).children(".grid-img").attr("index")
     displayPreview(jsonData, imgIndex)
 })
