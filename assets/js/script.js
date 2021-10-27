@@ -261,7 +261,7 @@ function changeIMG(x, i) {
                 $(".preview-img").attr("src", jsonData[i - 1])
                 $(".preview-img").ready(function () {
                     $(".preview-img").fadeToggle(300)
-                    $(".preview-img").attr("index", i + 1)
+                    $(".preview-img").attr("index", i - 1)
                 })
                 $(this).dequeue()
             })
