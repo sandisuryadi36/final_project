@@ -93,7 +93,6 @@ var age = Math.floor((d.getTime() - dateBirth.getTime()) / (1000 * 3600 * 24 * 3
 $("#age").append(age + " years old")
 
 
-$(function () {
 // =======DO NOT DELETE==============
 // get pictures array from directory
 // just use this in local server to take the file list in folder, then copy to json file
@@ -115,7 +114,6 @@ $(function () {
     //     }
     // })
 // =======DO NOT DELETE==============
-});
 
 //Loading iamge handler ===============
 $.ajaxSetup({
