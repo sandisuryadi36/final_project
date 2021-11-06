@@ -118,6 +118,7 @@ button {
     border-radius: 30px;
     border: none;
     color: var.$onPrime-color;
+    cursor: pointer;
     @include mixin.breakpoint_down(small){
         // width: 25vw;
     }

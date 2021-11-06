@@ -1,24 +1,28 @@
 $(".anchor").css("bottom", $(".nav").outerHeight() + 5)
-var navh = $(".nav").outerHeight()
+let navh = $(".nav").outerHeight()
 $(".content").css("margin-top", navh)
 
 //select size of reCaptcha
 if ($(window).width() < 640) {
-    $(".g-recaptcha").attr("data-size","compact")
+    $(".g-recaptcha").attr("data-size", "compact")
 } else {
-    $(".g-recaptcha").attr("data-size","normal")
+    $(".g-recaptcha").attr("data-size", "normal")
 }
 //========================
 
 //menu click behavior
 $(".menuBtn").on("click", function () {
-    var target = $(this).attr("scroll-to")
+    let target = $(this).attr("scroll-to")
     if (target == "#") {
-        document.querySelector("html").scrollIntoView({ behavior: "smooth", block : "start" })
+        focusView("html")
     } else {
-        document.querySelector(target).scrollIntoView({ behavior: "smooth", block : "start" })
+        focusView(target)
     }
 })
+
+function focusView(queryTarget) {
+    document.querySelector(queryTarget).scrollIntoView({ behavior: "smooth", block: "start" })
+}
 
 //script to handle hamburger menu clicked
 function toggleMenu() {
@@ -28,9 +32,9 @@ function toggleMenu() {
 }
 
 $(document).on("click", "#btnHamburger", function () {
-    
+
     //set top position and height
-    if ($(window).scrollTop() >= $(".nav").outerHeight()) {       
+    if ($(window).scrollTop() >= $(".nav").outerHeight()) {
         $(".overlay").css("top", $(window).scrollTop() + 5)
         $(".overlay").css("height", $(window).height() - $(".nav").outerHeight() - 5)
     } else {
@@ -51,7 +55,7 @@ $(document).on("click", ".overlay", function () {
 
 //scrolling page triger
 $(window).scroll(navh, function () {
-    
+
     //script to handle sticky nav bar
     if ($(window).scrollTop() >= $(".nav").outerHeight()) {
         $(".nav").addClass("sticky-nav")
@@ -82,85 +86,107 @@ $(window).scroll(navh, function () {
 })
 
 //handle my age
-var day = new Date().getDate()
-var month = new Date().getMonth()
-var year = new Date().getFullYear()
-var d = new Date(month + "/" + day + "/" + year)
-var dateBirth = new Date("03/01/1994")
+let day = new Date().getDate()
+let month = new Date().getMonth()
+let year = new Date().getFullYear()
+let d = new Date(month + "/" + day + "/" + year)
+let dateBirth = new Date("03/01/1994")
 
-var age = Math.floor((d.getTime() - dateBirth.getTime()) / (1000 * 3600 * 24 * 365))
+let age = Math.floor((d.getTime() - dateBirth.getTime()) / (1000 * 3600 * 24 * 365))
 
 $("#age").append(age + " years old")
 
 
-// =======DO NOT DELETE==============
-// get pictures array from directory
-// just use this in local server to take the file list in folder, then copy to json file
-    // var baseUrl = "/assets/portfolio/"
-    // var pictures = []
-
-
-    // $.ajax({
-    //     url: baseUrl,
-    //     success: function (data) {
-    //         pictures = []
-    //         $(data).find("a").each(function () {
-    //             var href = $(this).attr('href')
-    //             if (href.match(/\.(jpe?g|JPE?G|png|PNG|gif|GIF|webp|WEBP)$/)) {
-    //                 pictures.push(href)
-    //             }
-    //         })
-    //         console.log(pictures)
-    //     }
-    // })
-// =======DO NOT DELETE==============
-
 //Loading iamge handler ===============
-$.ajaxSetup({
-    async: false
-});
 
-var jsonData = (function () {
-    var result;
-    $.ajax({
-        url: "../assets/portfolio/list.json",
-        success: function (data) {
-            result = data
-        }
-    })
-    return result;
-})();
+let imgCount = 0  //count of all img
+let perLoad = 5     //max image grid load at once
+let loaded = 0      //count loaded img
+let categoryActive = ""
+let data
 
-var imgCount = jsonData.length  //count of all img
-var perLoad = 6     //max image grid load at once
-var loaded = 0      //count loaded img
-
-loadGrid(loaded, perLoad)
-
-if (imgCount > loaded) {
-    $("<button id='load-btn'>Load more...</button>").insertBefore("#contact")
-}
-
-$("#load-btn").on("click", function () {
-    var i = imgCount - loaded
-    if (i > perLoad) {
-        loadGrid(loaded, loaded + perLoad)
-    } else {
-        loadGrid(loaded, loaded + i)
-        $("#load-btn").remove()
-    }
+$("#product").on("click", function () {
+    imgCount = 0
+    loaded = 0
+    categoryActive = "product"
+    loadData("product")
+    $("#product").addClass("active")
+    $("#portrait").removeClass("active")
 })
 
-function loadGrid(e, x) {
-    for (var i = e; i < x; i++){
-        makeGrid(".grid-container", jsonData[i], i)
+$("#portrait").on("click", function () {
+    imgCount = 0
+    loaded = 0
+    categoryActive = "portrait"
+    loadData("portrait")
+    $("#portrait").addClass("active")
+    $("#product").removeClass("active")
+})
+
+function loadData(category) {
+    $.ajax({
+        url: "../node/list.json",
+        success: function (jsonData) {
+
+            switch (category) {
+                case "product":
+                    data = jsonData.product
+                    break
+                case "portrait":
+                    data = jsonData.portrait
+                    break
+            }
+
+            if ($(".grid-container").length == 1) {
+                $(".grid-container").slideUp(300).queue(function () {
+                    $(".grid-container").remove()
+                    $("#load-btn").remove()
+
+                    display()
+                    $(this).dequeue()
+                })
+            } else {
+                display()
+            }
+        }
+    })
+}
+
+function display() {
+    $("<div class='grid-container flex flex-jc-c flex-row'></div>").insertAfter($("#" + categoryActive))
+
+    imgCount = data.length
+    loadGrid(loaded, perLoad, data)
+    console.log("loaded " + loaded)
+    console.log("data count" + imgCount)
+
+    if (imgCount > loaded) {
+        $("<button id='load-btn'>Load more...</button>").insertAfter(".grid-container")
+    }
+
+    $("#load-btn").on("click", function () {
+        let i = imgCount - loaded
+        if (i > perLoad) {
+            loadGrid(loaded, loaded + perLoad, data)
+        } else {
+            loadGrid(loaded, loaded + i, data)
+            $("#load-btn").remove()
+        }
+
+        console.log("loaded " + loaded)
+    })
+}
+
+function loadGrid(iloaded, iperload, idata) {
+    for (let i = iloaded; i < iperload; i++) {
+        makeGrid(".grid-container", idata[i], i)
         loaded++
     }
 }
 
 //function to display to grid
 function makeGrid(container, link, i) {
-    $(container).append("<div class='grid-item'><img class='grid-img' src='" + link + "' loading='lazy' index='" + i +"' oncontextmenu='return false;'><span clas='mobile-hide'></span></div>")
+    $(container).append("<div class='grid-item'><img class='grid-img' src='" + link + "' loading='lazy' index='" + i + "' oncontextmenu='return false;'><span clas='mobile-hide'></span></div>")
 }
 
 //========load image handler
@@ -171,14 +197,14 @@ function displayPreview(data, i) {
     $(".preview").append("<div class='backlayer'></div>")
     if (i != null) {    //with i parameter
         $(".preview").append("<img class='preview-img' src='" + data[i] + "' index='" + i + "' oncontextmenu='return false;'>")
-        
+
         $(".preview").append("<div class='navigation flex flex-row flex-jc-sb'></div>")
         $(".navigation").append("<div class='nav-left flex flex-column flex-jc-c flex-ai-c'><span></span><span></span></div>")
         $(".navigation").append("<div class='nav-right flex flex-column flex-jc-c flex-ai-c'><span></span><span></span></div>")
     } else {    //without i parameter
-        $(".preview").append("<img class='preview-img' src='" + data +"' oncontextmenu='return false;'>")
+        $(".preview").append("<img class='preview-img' src='" + data + "' oncontextmenu='return false;'>")
     }
-    
+
     $(".preview").append("<div id='close-preview'><span></span><span></span></div>")
 
     $(".preview").fadeToggle(500)
@@ -197,8 +223,8 @@ function closePreview() {
 $(document).on("swipeleft", ".preview", function () { nextPrev() })
 $(document).on("swiperight", ".preview", function () { backPrev() })
 
-$(document).on("click", ".nav-left", function(){ backPrev() })
-$(document).on("click", ".nav-right", function(){ nextPrev() })
+$(document).on("click", ".nav-left", function () { backPrev() })
+$(document).on("click", ".nav-right", function () { nextPrev() })
 
 $(document).keydown(function (e) {
     if (e.keyCode == 37) {
@@ -216,17 +242,17 @@ $(document).on("click", ".backlayer", function () {
     closePreview()
 })
 
-function nextPrev(){
-    var i = parseInt($(".preview-img").attr("index"))
+function nextPrev() {
+    let i = parseInt($(".preview-img").attr("index"))
     if (i < loaded - 1) {
         changeIMG("next", i)
-    } else if ((i == loaded - 1) && (loaded != jsonData.length)) {
+    } else if ((i == loaded - 1) && (loaded != data.length)) {
         if (confirm("Do you want to load more photos?")) {
-            var x = imgCount - loaded
+            let x = imgCount - loaded
             if (x > perLoad) {
-                loadGrid(loaded, loaded + perLoad)
+                loadGrid(loaded, loaded + perLoad, data)
             } else {
-                loadGrid(loaded, loaded + x)
+                loadGrid(loaded, loaded + x, data)
                 $("#load-btn").remove()
             }
             changeIMG("next", i)
@@ -235,7 +261,7 @@ function nextPrev(){
 }
 
 function backPrev() {
-    var i = parseInt($(".preview-img").attr("index"))
+    let i = parseInt($(".preview-img").attr("index"))
     changeIMG("back", i)
 }
 
@@ -244,7 +270,7 @@ function changeIMG(x, i) {
         $(".preview-img").toggleClass("swipe-left")
         $(".preview-img").fadeToggle(300).queue(function () {
             $(".preview-img").toggleClass("swipe-left")
-            $(".preview-img").attr("src", jsonData[i + 1])
+            $(".preview-img").attr("src", data[i + 1])
             $(".preview-img").ready(function () {
                 $(".preview-img").fadeToggle(300)
                 $(".preview-img").attr("index", i + 1)
@@ -256,7 +282,7 @@ function changeIMG(x, i) {
             $(".preview-img").toggleClass("swipe-right")
             $(".preview-img").fadeToggle(300).queue(function () {
                 $(".preview-img").toggleClass("swipe-right")
-                $(".preview-img").attr("src", jsonData[i - 1])
+                $(".preview-img").attr("src", data[i - 1])
                 $(".preview-img").ready(function () {
                     $(".preview-img").fadeToggle(300)
                     $(".preview-img").attr("index", i - 1)
@@ -270,12 +296,12 @@ function changeIMG(x, i) {
 //============= preview navigation end
 
 $(document).on("click", "#angin", function () {
-    var link = "./assets/images/Sertifikat-Angin-Photoschool.webp"
+    let link = "./assets/images/Sertifikat-Angin-Photoschool.webp"
     displayPreview(link)
 })
 
 $(document).on("click", "#certivicate", function () {
-    var link = "./assets/images/Sertifikat-Kompetensi-LESKOFI-lv-3.webp"
+    let link = "./assets/images/Sertifikat-Kompetensi-LESKOFI-lv-3.webp"
     displayPreview(link)
 })
 
@@ -292,6 +318,6 @@ $(document).on("click", "#close-form", function () {
 
 //image clicked
 $(document).on("click", ".grid-item", function () {
-    var imgIndex = $(this).children(".grid-img").attr("index")
-    displayPreview(jsonData, imgIndex)
+    let imgIndex = $(this).children(".grid-img").attr("index")
+    displayPreview(data, imgIndex)
 })

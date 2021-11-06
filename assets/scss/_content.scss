@@ -455,14 +455,105 @@ section {
     }
 }
 
+.category {
+    position: relative;
+    width: 80%;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: all 300ms ease-in-out;
+
+    @include mixin.breakpoint_down(small){
+        height: 50px;
+    }
+
+    &::after {
+        position: absolute;
+        font-size: 3em;
+        font-weight: 700;
+        letter-spacing: 20px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 100px;
+        background-color: rgba($color: black, $alpha: 0.3);
+        backdrop-filter: grayscale(0.8) blur(2px);
+        transition: all 300ms ease-in-out;
+
+        @include mixin.breakpoint_down(medium){
+            font-size: 2em;
+            letter-spacing: 15px;
+        }
+
+        @include mixin.breakpoint_down(small){
+            font-size: 1em;
+            letter-spacing: 10px;
+            line-height: 50px;
+        }
+    }
+
+    &:hover{
+        &::after {
+            background-color: rgba($color: black, $alpha: 0);
+            backdrop-filter: grayscale(0) blur(0);
+            line-height: 200px;
+
+            @include mixin.breakpoint_down(small){
+                line-height: 100px;
+            }
+        }
+
+        height: 200px;
+
+        @include mixin.breakpoint_down(small){
+            height: 100px;
+        }
+    }
+
+    &.active {
+        &::after {
+            background-color: rgba($color: black, $alpha: 0);
+            backdrop-filter: grayscale(0) blur(0);
+        }
+
+        pointer-events: none;
+    }
+}
+
+#product {
+    background-image: url("../assets/portfolio/product_coco-book.webp");
+
+    &::after {
+        content: "PRODUCT";
+    }
+}
+
+#portrait {
+    background-image: url("../assets/portfolio/portrait_DSC04199-Edit.webp");
+    
+    &::after {
+        content: "PORTRAIT";
+    }
+}
+
 .grid-container {
+    position: relative;
     flex-wrap: wrap;
+    background-color: var.surface_color(7%);
+    padding: 20px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .grid-item {
     margin: 5px;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     overflow: hidden;
     position: relative;
     transition: 200ms;
