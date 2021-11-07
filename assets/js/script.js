@@ -352,6 +352,7 @@ $(document).on("click", "#certificate", function () {
 })
 
 $(document).on("focus", "#leave-message", function () {
+    $("#ms-form").load("form.html")
     $("#ms-form").fadeToggle(500)
     $("#form-name").focus()
     $("body").toggleClass("noScroll")
@@ -373,7 +374,9 @@ window.onpopstate = function () {
     }
 
     if ($("#ms-form").css("display") != "none") {
-        $("#ms-form").fadeToggle(500)
+        $("#ms-form").fadeToggle(500, function () {
+            $(".form").remove()
+        })
         $("body").toggleClass("noScroll")
     }
 }
