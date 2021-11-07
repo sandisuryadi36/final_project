@@ -160,7 +160,6 @@ section {
         color: var.$primary-color;
         color: linear-gradient(45deg, var.$primary-color 0%, var.$secondary-color 100%);
         font-size: 5em;
-        transition: all 300ms ease-in-out;
 
         @include mixin.breakpoint_down(medium){
             font-size: 4em;
@@ -402,7 +401,7 @@ section {
     width: 5px;
     background-color: var.$primary-color;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) !important;
     @include mixin.breakpoint_down(small){
         left: 5vw;
     }
@@ -460,7 +459,7 @@ section {
             position: absolute;
             top: 15px;
             left: 100%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) !important;
             @include mixin.breakpoint_down(small){
                 border: 4px solid var.$primary-color;
                 width: 10px;

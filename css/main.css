@@ -416,7 +416,6 @@ section {
   color: #32e0ff;
   color: linear-gradient(45deg, #32e0ff 0%, #ffff32 100%);
   font-size: 5em;
-  transition: all 300ms ease-in-out;
 }
 @media (max-width: 768px) {
   .greating h2 {
@@ -657,7 +656,7 @@ section {
   width: 5px;
   background-color: #32e0ff;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) !important;
 }
 @media (max-width: 480px) {
   .mid-line {
@@ -717,7 +716,7 @@ section {
   position: absolute;
   top: 15px;
   left: 100%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) !important;
 }
 @media (max-width: 480px) {
   .progress .time .dot {
