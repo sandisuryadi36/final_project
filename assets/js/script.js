@@ -209,6 +209,10 @@ function makeGrid(container, link, i) {
 
 //function to preview img
 function displayPreview(data, i) {
+    const url = new URL(window.location);
+    url.searchParams.set('disp', 'prev');
+    window.history.pushState({}, '', url);
+
     $("body").append("<div class='preview'></div>")
     $(".preview").append("<div class='backlayer'></div>")
     if (i != null) {    //with i parameter
@@ -225,10 +229,6 @@ function displayPreview(data, i) {
 
     $(".preview").fadeToggle(500)
     $("html").toggleClass("noScroll")
-
-    const url = new URL(window.location);
-    url.searchParams.set('dis', 'prev');
-    window.history.pushState({}, '', url);
 }
 
 function closePreview() {
@@ -237,8 +237,6 @@ function closePreview() {
         $("html").toggleClass("noScroll")
         $(this).dequeue()
     })
-
-    window.history.back();
 }
 
 //preview navigation ================
@@ -257,11 +255,11 @@ $(document).keydown(function (e) {
 });
 
 $(document).on("click", "#close-preview", function () {
-    closePreview()
+    window.history.back();
 })
 
 $(document).on("click", ".backlayer", function () {
-    closePreview()
+    window.history.back();
 })
 
 function nextPrev() {
@@ -333,16 +331,24 @@ $(document).on("focus", "#leave-message", function () {
     $("body").toggleClass("noScroll")
 
     const url = new URL(window.location);
-    url.searchParams.set('dis', 'msg');
+    url.searchParams.set('disp', 'msg');
     window.history.pushState({}, '', url);
 })
 
 $(document).on("click", "#close-form", function () {
-    $("#ms-form").fadeToggle(500)
-    $("body").toggleClass("noScroll")
-
     window.history.back();
 })
+
+window.onpopstate = function () {
+    if ($(".preview-img").length == 1) {
+        closePreview()
+    }
+
+    if ($("#ms-form").css("display") != "none") {
+        $("#ms-form").fadeToggle(500)
+        $("body").toggleClass("noScroll")
+    }
+}
 
 //image clicked
 $(document).on("click", ".grid-item", function () {
