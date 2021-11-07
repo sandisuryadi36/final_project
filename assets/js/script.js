@@ -1,6 +1,6 @@
 $(".anchor").css("bottom", $(".nav").outerHeight() + 5)
 let navh = $(".nav").outerHeight()
-$(".content").css("margin-top", navh)
+// $(".content").css("margin-top", navh)
 
 //select size of reCaptcha
 if ($(window).width() < 640) {
@@ -83,6 +83,25 @@ $(window).scroll(navh, function () {
         $(".menu_link > *").removeClass("active")
         $("#mHome").addClass("active")
     }
+
+    //paralax handler
+    let scrollTop = $(window).scrollTop()
+    let nameHead = $(".greating")
+    let camera1 = $(".image-item:nth-child(1)")
+    let camera2 = $(".image-item:nth-child(2)")
+    let camera3 = $(".image-item:nth-child(3)")
+
+    paralax(nameHead, 20)
+    paralax(camera1,6)
+    paralax(camera2, -6)
+    paralax(camera3, 3)
+    
+    function paralax(target, depht) {
+        target.css({
+            "transform" : "translate(0, "+ scrollTop/depht * -1 +"%)"
+        })
+    }
+    
 })
 
 //handle my age
@@ -138,12 +157,11 @@ function loadData(category) {
             }
 
             if ($(".grid-container").length == 1) {
-                $(".grid-container").slideUp(300).queue(function () {
+                $(".grid-container").slideUp(700, function () {
                     $(".grid-container").remove()
                     $("#load-btn").remove()
 
                     display()
-                    $(this).dequeue()
                 })
             } else {
                 display()
@@ -153,17 +171,17 @@ function loadData(category) {
 }
 
 function display() {
-    $("<div class='grid-container flex flex-jc-c flex-row'></div>").insertAfter($("#" + categoryActive))
+    $("<div class='grid-container flex-jc-c flex-row'></div>").insertAfter($("#" + categoryActive))
 
     imgCount = data.length
     loadGrid(loaded, perLoad, data)
-    console.log("loaded " + loaded)
-    console.log("data count" + imgCount)
-
-    if (imgCount > loaded) {
-        $("<button id='load-btn'>Load more...</button>").insertAfter(".grid-container")
-    }
-
+    $(".grid-container").slideDown(700, function () {
+        if (imgCount > loaded) {
+            $("<button id='load-btn'>Load more...</button>").insertAfter(".grid-container")
+        }
+    })
+    $(".grid-container").css("display", "flex")
+    
     $("#load-btn").on("click", function () {
         let i = imgCount - loaded
         if (i > perLoad) {
@@ -172,8 +190,6 @@ function display() {
             loadGrid(loaded, loaded + i, data)
             $("#load-btn").remove()
         }
-
-        console.log("loaded " + loaded)
     })
 }
 
