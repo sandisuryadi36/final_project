@@ -35,10 +35,10 @@ $(document).on("click", "#btnHamburger", function () {
 
     //set top position and height
     if ($(window).scrollTop() >= $(".nav").outerHeight()) {
-        $(".overlay").css("top", $(window).scrollTop() + 5)
+        $(".overlay").css("top", $(window).scrollTop() + navh + 5)
         $(".overlay").css("height", $(window).height() - $(".nav").outerHeight() - 5)
     } else {
-        $(".overlay").css("top", $(window).scrollTop())
+        $(".overlay").css("top", $(window).scrollTop() + navh)
         $(".overlay").css("height", $(window).height() - $(window).scrollTop() - $(".nav").outerHeight())
     }
 
