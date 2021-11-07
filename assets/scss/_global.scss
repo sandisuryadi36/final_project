@@ -13,11 +13,7 @@ body {
     width: 100%;
     overflow-x: hidden;
     overflow-y: overlay;
-    // background-color: var.$background-color;
-    background-image: radial-gradient(circle, #111111, #151515, #181818, #1c1c1c, #1f1f1f);
-    background-size: contain;
-    background-attachment: fixed;
-    background-repeat: repeat-y;
+    background-color: var.$background-color;
     color: var.$onBack-color;
     font-family: 'Manrope', sans-serif;
     font-weight: 300;
