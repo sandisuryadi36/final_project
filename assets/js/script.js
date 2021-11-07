@@ -92,7 +92,7 @@ $(window).scroll(navh, function () {
     let camera3 = $(".image-item:nth-child(3)")
 
     paralax(nameHead, 20)
-    paralax(camera1,6)
+    paralax(camera1,5)
     paralax(camera2, -6)
     paralax(camera3, 3)
     
