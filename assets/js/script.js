@@ -124,7 +124,7 @@ let loaded = 0      //count loaded img
 let categoryActive = ""
 let data
 
-$("#product").on("click", function () {
+$(document).on("click", "#product", function () {
     imgCount = 0
     loaded = 0
     categoryActive = "product"
@@ -133,7 +133,7 @@ $("#product").on("click", function () {
     $("#portrait").removeClass("active")
 })
 
-$("#portrait").on("click", function () {
+$(document).on("click", "#portrait", function () {
     imgCount = 0
     loaded = 0
     categoryActive = "portrait"
@@ -170,6 +170,16 @@ function loadData(category) {
     })
 }
 
+$(document).on("click", "#load-btn", function () {
+    let i = imgCount - loaded
+    if (i > perLoad) {
+        loadGrid(loaded, loaded + perLoad, data)
+    } else {
+        loadGrid(loaded, loaded + i, data)
+        $("#load-btn").remove()
+    }
+})
+
 function display() {
     $("<div class='grid-container flex-jc-c flex-row'></div>").insertAfter($("#" + categoryActive))
 
@@ -181,16 +191,6 @@ function display() {
         }
     })
     $(".grid-container").css("display", "flex")
-    
-    $("#load-btn").on("click", function () {
-        let i = imgCount - loaded
-        if (i > perLoad) {
-            loadGrid(loaded, loaded + perLoad, data)
-        } else {
-            loadGrid(loaded, loaded + i, data)
-            $("#load-btn").remove()
-        }
-    })
 }
 
 function loadGrid(iloaded, iperload, idata) {
@@ -316,7 +316,7 @@ $(document).on("click", "#angin", function () {
     displayPreview(link)
 })
 
-$(document).on("click", "#certivicate", function () {
+$(document).on("click", "#certificate", function () {
     let link = "./assets/images/Sertifikat-Kompetensi-LESKOFI-lv-3.webp"
     displayPreview(link)
 })
