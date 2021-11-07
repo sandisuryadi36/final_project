@@ -92,7 +92,7 @@ $(window).scroll(navh, function () {
     let camera3 = $(".image-item:nth-child(3)")
 
     paralax(nameHead, 20)
-    paralax(camera1,5)
+    paralax(camera1, 10)
     paralax(camera2, -6)
     paralax(camera3, 3)
     
@@ -225,6 +225,10 @@ function displayPreview(data, i) {
 
     $(".preview").fadeToggle(500)
     $("html").toggleClass("noScroll")
+
+    const url = new URL(window.location);
+    url.searchParams.set('dis', 'prev');
+    window.history.pushState({}, '', url);
 }
 
 function closePreview() {
@@ -233,6 +237,8 @@ function closePreview() {
         $("html").toggleClass("noScroll")
         $(this).dequeue()
     })
+
+    window.history.back();
 }
 
 //preview navigation ================
@@ -325,11 +331,17 @@ $(document).on("focus", "#leave-message", function () {
     $("#ms-form").fadeToggle(500)
     $("#form-name").focus()
     $("body").toggleClass("noScroll")
+
+    const url = new URL(window.location);
+    url.searchParams.set('dis', 'msg');
+    window.history.pushState({}, '', url);
 })
 
 $(document).on("click", "#close-form", function () {
     $("#ms-form").fadeToggle(500)
     $("body").toggleClass("noScroll")
+
+    window.history.back();
 })
 
 //image clicked
