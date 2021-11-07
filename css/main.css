@@ -10,7 +10,7 @@ body {
   overflow-x: hidden;
   overflow-y: overlay;
   background-image: radial-gradient(circle, #111111, #151515, #181818, #1c1c1c, #1f1f1f);
-  background-size: contain;
+  background-size: cover;
   background-attachment: fixed;
   color: #ffffff;
   font-family: "Manrope", sans-serif;
