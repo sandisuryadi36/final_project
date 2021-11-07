@@ -1,6 +1,6 @@
 $(".anchor").css("bottom", $(".nav").outerHeight() + 5)
 let navh = $(".nav").outerHeight()
-// $(".content").css("margin-top", navh)
+let clickCounter = 0
 
 //select size of reCaptcha
 if ($(window).width() < 640) {
@@ -240,26 +240,52 @@ function closePreview() {
 }
 
 //preview navigation ================
-$(document).on("swipeleft", ".preview", function () { nextPrev() })
-$(document).on("swiperight", ".preview", function () { backPrev() })
+$(document).on("swipeleft", ".preview", function () {
+    clickOnce(function () {
+        nextPrev()
+    })
+})
 
-$(document).on("click", ".nav-left", function () { backPrev() })
-$(document).on("click", ".nav-right", function () { nextPrev() })
+$(document).on("swiperight", ".preview", function () {
+    clickOnce(function () {
+        backPrev()
+    })
+})
+
+$(document).on("click", ".nav-left", function () {
+    clickOnce(function () {
+        backPrev()
+    })
+})
+
+$(document).on("click", ".nav-right", function () {
+    clickOnce(function () {
+        nextPrev()
+    })
+})
 
 $(document).keydown(function (e) {
     if (e.keyCode == 37) {
-        backPrev()
+        clickOnce(function () {
+            backPrev()
+        })
     } else if (e.keyCode == 39) {
-        nextPrev()
+        clickOnce(function () {
+            nextPrev()
+        })
     }
 });
 
 $(document).on("click", "#close-preview", function () {
-    window.history.back();
+    clickOnce(function () {
+        window.history.back()
+    })
 })
 
 $(document).on("click", ".backlayer", function () {
-    window.history.back();
+    clickOnce(function () {
+        window.history.back()
+    })
 })
 
 function nextPrev() {
@@ -336,7 +362,9 @@ $(document).on("focus", "#leave-message", function () {
 })
 
 $(document).on("click", "#close-form", function () {
-    window.history.back();
+    clickOnce(function () {
+        window.history.back()
+    })
 })
 
 window.onpopstate = function () {
@@ -348,6 +376,18 @@ window.onpopstate = function () {
         $("#ms-form").fadeToggle(500)
         $("body").toggleClass("noScroll")
     }
+}
+
+function clickOnce(clickEvent) {
+    clickCounter++
+    console.log(clickCounter)
+    
+    if (clickCounter === 1) {
+        clickEvent()
+    }
+    setTimeout(function () {
+        clickCounter = 0
+    }, 1000)
 }
 
 //image clicked
