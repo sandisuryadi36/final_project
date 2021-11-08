@@ -1,4 +1,5 @@
 # Portfolio Website 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7fc96938-21b9-4974-abc0-76f7e4fc6374/deploy-status)](https://app.netlify.com/sites/suryadi-photo/deploys)
 
 **Suryadi Photo**
 https://suryadi-photo.netlify.app/
