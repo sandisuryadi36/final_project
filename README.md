@@ -15,3 +15,4 @@ Dalam pembuatan website ini saya menggunakan teknologi/bahasa pemrograman sebaga
      Librari:
      - JQuery
      - JQuery Mobile
+     - AOS
