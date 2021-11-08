@@ -1,3 +1,15 @@
+//Handling favicon ========
+const faviconTag = document.getElementById("faviconTag");
+const isDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+const changeFavicon = () => {
+    if (isDark.matches) faviconTag.href = "./assets/images/icon-w.png";
+    else faviconTag.href = "./assets/images/icon.png";
+};
+
+changeFavicon()
+//=========================
+
 $(".anchor").css("bottom", $(".nav").outerHeight() + 5)
 let navh = $(".nav").outerHeight()
 let clickCounter = 0
