@@ -75,6 +75,12 @@ $(window).scroll(navh, function () {
         $(".nav").removeClass("sticky-nav")
     }
 
+    if ($(window).scrollTop() >= $("#about").offset().top - (2*navh)) {
+        $(".disp-element").css("opacity", "0")
+    } else {
+        $(".disp-element").css("opacity", "1")
+    }
+
     //handle active menu effect
     if ($(window).scrollTop() + ($(window).height() / 2) >= $("#contact").offset().top) {
         $(".menu_link > *").removeClass("active")
@@ -105,7 +111,7 @@ $(window).scroll(navh, function () {
 
     paralax(nameHead, 20)
     paralax(camera1, 10)
-    paralax(camera2, -6)
+    paralax(camera2, -10)
     paralax(camera3, 3)
     
     function paralax(target, depht) {

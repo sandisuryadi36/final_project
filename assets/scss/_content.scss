@@ -104,7 +104,6 @@ section {
         left: 50%;
         background-color: transparent;
         transform: translate(-50%, -50%);
-        pointer-events: auto;
 
         &:hover {
             >span {
@@ -145,6 +144,78 @@ section {
             }
         }
     }
+
+    .disp-element {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: opacity 800ms ease-in-out;
+
+        .top-disp{
+            margin: 20px;
+
+            .battery img{
+                width: 84px;
+            }
+
+            .exposure {
+                text-align: right;
+                color: var.surface_color(12%);
+                font-size: 1.3em;
+
+                p {
+                    margin: 0;
+                }
+
+                .iso span {
+                    background-color: var.surface_color(12%);
+                    color: var.$background-color;
+                    padding: 2px;
+                }
+            }
+        }
+
+        .bottom-disp {
+            img {
+                height: 40px;
+            }
+        }
+
+        @include mixin.breakpoint_down(medium){
+            .top-disp {
+                margin: 15px;
+                .battery img {
+                    width: 62px;
+                }
+                .exposure {
+                    font-size: 1.1em;
+                }
+            }
+
+            .bottom-disp img{
+                height: 35px;
+            }
+        }
+
+        @include mixin.breakpoint_down(small){
+            .top-disp {
+                margin: 10px;
+                .battery img {
+                    width: 45px;
+                }
+                .exposure {
+                    font-size: 0.9em;
+                }
+            }
+
+            .bottom-disp img{
+                height: 22px;
+            }
+        }
+    }
 }
 
 .greating {
@@ -180,6 +251,7 @@ section {
 
 .image-item {
     position: absolute;
+    transition: all 800ms ease;
 
     &:nth-child(1) {
         bottom: 4vh;
