@@ -429,6 +429,7 @@ section {
   background-color: #313131;
   color: #121212;
   padding: 2px;
+  border-radius: 5px;
 }
 .fg-patern .disp-element .bottom-disp img {
   height: 40px;
