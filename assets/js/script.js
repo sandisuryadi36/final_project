@@ -230,6 +230,7 @@ function displayPreview(data, i) {
     const url = new URL(window.location);
     url.searchParams.set('disp', 'prev');
     window.history.pushState({}, '', url);
+    console.log(url)
 
     $("body").append("<div class='preview'></div>")
     $(".preview").append("<div class='backlayer'></div>")

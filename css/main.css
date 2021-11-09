@@ -312,7 +312,7 @@ section {
 
 .fg-patern {
   pointer-events: none;
-  z-index: 2;
+  z-index: 4;
   position: fixed;
   width: 80vw;
   height: 70vh;
