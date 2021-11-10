@@ -15,7 +15,7 @@ Dalam pembuatan website ini saya menggunakan teknologi/bahasa pemrograman sebaga
      3. SASS
      4. Javascript
      
-     Librari:
+     Library:
      - JQuery
      - JQuery Mobile
      - AOS
